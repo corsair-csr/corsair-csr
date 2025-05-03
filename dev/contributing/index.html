@@ -621,6 +621,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m5.8 21 1.6-7L2 9.2l7.2-.6L12 2l2.8 6.6 7.2.6-3.2 2.8H18c-3.1 0-5.6 2.3-6 5.3zM17 14v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -632,6 +645,145 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-vs-code-dev-containers-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: VS Code + Dev Containers (Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-using-docker-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Using Docker CLI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-tasks-poe-the-poet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Tasks (Poe the Poet)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Choices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Choices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdl-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      HDL Infrastructure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2417,7 +2569,132 @@
 
 
 <h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
-<p>TBD</p>
+<p>This document provides guidelines for contributing to the Corsair project.</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>The recommended way to develop Corsair is using the provided Devcontainer configuration, which ensures a consistent environment with all necessary dependencies.</p>
+<h3 id="option-1-vs-code-dev-containers-recommended">Option 1: VS Code + Dev Containers (Recommended)<a class="headerlink" href="#option-1-vs-code-dev-containers-recommended" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Prerequisites</strong>: Install <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> and <a href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers extension</a>.</li>
+<li><strong>Clone the repository</strong>: <code>git clone https://github.com/esynr3z/corsair.git</code></li>
+<li><strong>Open in VS Code</strong>: Open the cloned <code>corsair</code> folder in VS Code.</li>
+<li><strong>Reopen in Container</strong>: VS Code should prompt you to "Reopen in Container". Click it. Alternatively, open the Command Palette (<code>Ctrl+Shift+P</code> or <code>Cmd+Shift+P</code>), search for "Dev Containers: Reopen in Container", and run the command.</li>
+<li><strong>Wait</strong>: The first time, it will take a few minutes to build the Docker image and set up the container.</li>
+<li><strong>Verify</strong>: Once the container is ready, open a terminal within VS Code (<code>Terminal &gt; New Terminal</code>). It should open inside the dev container. Verify by running:
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>uv<span class="w"> </span>run<span class="w"> </span>corsair<span class="w"> </span>--help
+</code></pre></div></td></tr></table></div>
+    You should see the Corsair CLI help message.</li>
+</ol>
+<h3 id="option-2-using-docker-cli">Option 2: Using Docker CLI<a class="headerlink" href="#option-2-using-docker-cli" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Prerequisites</strong>: Install <a href="https://docs.docker.com/engine/install/">Docker</a>.</li>
+<li><strong>Clone the repository</strong>: <code>git clone https://github.com/esynr3z/corsair.git</code></li>
+<li><strong>Navigate</strong>: <code>cd corsair</code></li>
+<li><strong>Build the image</strong>: Build the Docker image using the provided Dockerfile.
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>corsair-dev<span class="w"> </span>.devcontainer/
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Run the container</strong>: Start an interactive container, mounting the project directory.
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># For Linux/macOS:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># For Windows (Command Prompt):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;%cd%:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># For Windows (PowerShell):</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
+</code></pre></div></td></tr></table></div><ul>
+<li><code>-it</code>: Interactive terminal.</li>
+<li><code>--rm</code>: Remove the container when it exits.</li>
+<li><code>-v "...:/workspaces/corsair"</code>: Mounts your local project directory into the container.</li>
+<li><code>-w /workspaces/corsair</code>: Sets the working directory inside the container.</li>
+<li><code>corsair-dev</code>: The image name we built.</li>
+<li><code>bash</code>: The command to run inside the container.</li>
+</ul>
+</li>
+<li><strong>Setup Environment</strong>: Inside the container's bash prompt, install dependencies and pre-commit hooks:
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>uv<span class="w"> </span>sync<span class="w"> </span>--all-extras<span class="w"> </span>--dev
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>uv<span class="w"> </span>run<span class="w"> </span>poe<span class="w"> </span>install-hooks
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Verify</strong>: Inside the container's bash prompt, run:
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>uv<span class="w"> </span>run<span class="w"> </span>corsair<span class="w"> </span>--help
+</code></pre></div></td></tr></table></div>
+    You should see the Corsair CLI help message.</li>
+</ol>
+<h3 id="running-commands">Running Commands<a class="headerlink" href="#running-commands" title="Permanent link">&para;</a></h3>
+<p>Once inside the development environment (either VS Code terminal or Docker bash), use <code>uv run</code> to execute commands within the project's managed Python environment. This ensures you are using the correct dependencies.</p>
+<p>For example, to run <code>pytest</code>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pytest
+</code></pre></div></td></tr></table></div></p>
+<h3 id="available-tasks-poe-the-poet">Available Tasks (Poe the Poet)<a class="headerlink" href="#available-tasks-poe-the-poet" title="Permanent link">&para;</a></h3>
+<p>Common development tasks are defined using <a href="https://github.com/nat-n/poethepoet">poethepoet</a> and can be run via <code>uv run poe &lt;task_name&gt;</code>. You can list all available tasks with:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>uv<span class="w"> </span>run<span class="w"> </span>poe
+</code></pre></div></td></tr></table></div>
+<p>Common tasks include:</p>
+<ul>
+<li><code>clean</code>: Clean project directory from temporary files and folders</li>
+<li><code>install-hooks</code>: Install Git pre-commit hooks</li>
+<li><code>format</code>: Format all the Python code with Ruff</li>
+<li><code>lint</code>: Lint all the Python code with Ruff</li>
+<li><code>fix-lint</code>: Lint all the Python code with Ruff and fix the issues</li>
+<li><code>check-format</code>: Check format for all the Python code with Ruff</li>
+<li><code>check-types</code>: Do type checking for all the Python code with Pyright</li>
+<li><code>test</code>: Run all tests via pytest</li>
+<li><code>test-cov</code>: Run all tests via pytest with coverage collection</li>
+<li><code>check-commits</code>: Do commit message checking for the current branch</li>
+<li><code>docs</code>: Build the documentation</li>
+<li><code>serve-docs</code>: Run development server for the documentation development</li>
+</ul>
+<h2 id="project-choices">Project Choices<a class="headerlink" href="#project-choices" title="Permanent link">&para;</a></h2>
+<p>To ensure consistency and maintainability, the Corsair project relies on a specific seёt of tools and conventions. Understanding these choices is crucial for effective contribution.</p>
+<h3 id="main-dependencies">Main Dependencies<a class="headerlink" href="#main-dependencies" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CLI Management</strong>: <a href="https://typer.tiangolo.com/">Typer</a></li>
+<li><strong>Data Management</strong>: <a href="https://docs.pydantic.dev/">Pydantic</a></li>
+<li><strong>Templating</strong>: <a href="https://jinja.palletsprojects.com/">Jinja2</a></li>
+</ul>
+<h3 id="python-infrastructure">Python Infrastructure<a class="headerlink" href="#python-infrastructure" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Python Version</strong>: Requires <a href="https://www.python.org/">Python</a> 3.10 or newer.</li>
+<li><strong>Package Management</strong>: <a href="https://github.com/astral-sh/uv">uv</a></li>
+<li><strong>Task Management</strong>: <a href="https://github.com/nat-n/poethepoet">poethepoet</a> (tasks defined in <code>pyproject.toml</code>)</li>
+<li><strong>Formatting</strong>: <a href="https://docs.astral.sh/ruff/formatter/">Ruff Formatter</a></li>
+<li><strong>Linting</strong>: <a href="https://docs.astral.sh/ruff/linter/">Ruff Linter</a></li>
+<li><strong>Type Checking</strong>: <a href="https://github.com/microsoft/pyright">Pyright</a></li>
+<li><strong>Unit Testing</strong>: <a href="https://docs.pytest.org/">pytest</a></li>
+</ul>
+<h3 id="hdl-infrastructure">HDL Infrastructure<a class="headerlink" href="#hdl-infrastructure" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Unit Testing</strong>: <a href="https://www.cocotb.org/">cocotb</a></li>
+<li><strong>Verilog/SystemVerilog Simulators</strong>: <a href="https://verilator.org/">Verilator</a> (open-source) and Modelsim (commercial).</li>
+<li><strong>VHDL Simulators</strong>: <a href="https://ghdl.github.io/ghdl/">GHDL</a> (open-source) and Modelsim (commercial).</li>
+<li><strong>Formal Verification</strong>: <a href="https://github.com/YosysHQ/eqy">EQY (Yosys-SMTBMC)</a></li>
+</ul>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Generator</strong>: <a href="https://www.mkdocs.org/">MkDocs</a></li>
+<li><strong>Theme</strong>: <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></li>
+<li><strong>Hosting</strong>: <a href="https://pages.github.com/">GitHub Pages</a></li>
+</ul>
+<h3 id="git-workflow">Git Workflow<a class="headerlink" href="#git-workflow" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Branching</strong>: A single <code>master</code> branch holds the stable code. Development happens in short-lived feature branches branched off <code>master</code>.</li>
+<li><strong>Commits</strong>: Follow the <a href="https://www.conventionalcommits.org/">Conventional Commits</a> specification (checked via <a href="https://commitizen-tools.github.io/commitizen/">Commitizen</a>).</li>
+<li><strong>Tags</strong>: Follow <a href="https://semver.org/">Semantic Versioning (SemVer)</a>.</li>
+<li><strong>Hooks</strong>: <a href="https://pre-commit.com/">pre-commit</a> (configured in <code>.pre-commit-config.yaml</code>).</li>
+<li><strong>Changelog</strong>: Follow the <a href="https://keepachangelog.com/">Keep a Changelog</a> format (in <code>CHANGELOG.md</code>).</li>
+</ul>
+<h3 id="automation">Automation<a class="headerlink" href="#automation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Continuous Integration (CI)</strong>: <a href="https://github.com/features/actions">GitHub Actions</a> (configured in <code>.github/workflows/</code>).</li>
+<li><strong>Development Environment</strong>: <a href="https://containers.dev/">Devcontainer</a> (configured in <code>.devcontainer/devcontainer.json</code>).</li>
+</ul>
 
 
 
@@ -2440,7 +2717,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 3, 2025</span>
   </span>
 
     
