@@ -1,0 +1,2552 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CLI tool and Python library designed to manage CSR maps for HDL projects">
+      
+      
+      
+        <link rel="canonical" href="https://corsair-csr.github.io/dev/hardware/protocols/">
+      
+      
+        <link rel="prev" href="../fields/">
+      
+      
+        <link rel="next" href="../../blog/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Micro Architecture Specifications for Protocol Bridges - Corsair</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Micro Architecture Specifications for Protocol Bridges - Corsair" >
+      
+        <meta  property="og:description"  content="CLI tool and Python library designed to manage CSR maps for HDL projects" >
+      
+        <meta  property="og:image"  content="https://corsair-csr.github.io/dev/assets/images/social/hardware/protocols/index.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://corsair-csr.github.io/dev/hardware/protocols/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Micro Architecture Specifications for Protocol Bridges - Corsair" >
+      
+        <meta  name="twitter:description"  content="CLI tool and Python library designed to manage CSR maps for HDL projects" >
+      
+        <meta  name="twitter:image"  content="https://corsair-csr.github.io/dev/assets/images/social/hardware/protocols/index.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#micro-architecture-specifications-for-protocol-bridges" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Corsair" class="md-header__button md-logo" aria-label="Corsair" data-md-component="logo">
+      
+  <img src="../../assets/images/logo-white-outline.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Corsair
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Micro Architecture Specifications for Protocol Bridges
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/esynr3z/corsair" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cookbook/" class="md-tabs__link">
+          
+  
+    
+  
+  Cookbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/" class="md-tabs__link">
+          
+  
+    
+  
+  Concepts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../build-file/" class="md-tabs__link">
+          
+  
+    
+  
+  Build File
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../register-file/" class="md-tabs__link">
+          
+  
+    
+  
+  Register File
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cli/" class="md-tabs__link">
+          
+  
+    
+  
+  CLI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/" class="md-tabs__link">
+          
+  
+    
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Corsair" class="md-nav__button md-logo" aria-label="Corsair" data-md-component="logo">
+      
+  <img src="../../assets/images/logo-white-outline.svg" alt="logo">
+
+    </a>
+    Corsair
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/esynr3z/corsair" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg>
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../first-steps/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.693 1.066a.75.75 0 0 1 .614 0l7.25 3.25a.75.75 0 0 1 0 1.368L13 6.831v2.794c0 1.024-.81 1.749-1.66 2.173-.893.447-2.075.702-3.34.702q-.417 0-.816-.036a.75.75 0 0 1 .133-1.494Q7.649 11 8 11c1.082 0 2.025-.221 2.67-.543.69-.345.83-.682.83-.832V7.503L8.307 8.934a.75.75 0 0 1-.614 0L4 7.28v1.663c.296.105.575.275.812.512.438.438.688 1.059.688 1.796v3a.75.75 0 0 1-.75.75h-3a.75.75 0 0 1-.75-.75v-3c0-.737.25-1.358.688-1.796.237-.237.516-.407.812-.512V6.606L.443 5.684a.75.75 0 0 1 0-1.368ZM2.583 5 8 7.428 13.416 5 8 2.572ZM2.5 11.25v2.25H4v-2.25c0-.388-.125-.611-.25-.735a.7.7 0 0 0-.5-.203.7.7 0 0 0-.5.203c-.125.124-.25.347-.25.735"/></svg>
+  
+  <span class="md-ellipsis">
+    First Steps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m5.8 21 1.6-7L2 9.2l7.2-.6L12 2l2.8 6.6 7.2.6-3.2 2.8H18c-3.1 0-5.6 2.3-6 5.3zM17 14v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M7.75 14A1.75 1.75 0 0 1 6 12.25v-8.5C6 2.784 6.784 2 7.75 2h6.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14Zm-.25-1.75c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25h-6.5a.25.25 0 0 0-.25.25ZM4.9 3.508a.75.75 0 0 1-.274 1.025.25.25 0 0 0-.126.217v6.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.75 1.75 0 0 1 3 11.25v-6.5c0-.649.353-1.214.874-1.516a.75.75 0 0 1 1.025.274ZM1.625 5.533za.25.25 0 0 0-.126.217v4.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.75 1.75 0 0 1 0 10.25v-4.5a1.75 1.75 0 0 1 .873-1.516.75.75 0 1 1 .752 1.299"/></svg>
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cookbook/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Cookbook
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cookbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using CLI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Using CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbook/cli/create-project/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.75 7a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5zM5 4.75A.75.75 0 0 1 5.75 4h5.5a.75.75 0 0 1 0 1.5h-5.5A.75.75 0 0 1 5 4.75M6.75 10a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5z"/><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Create Empty Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Using API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbook/api/custom-flow/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 5H8l4-4 4 4h-3v4.43c-.75.46-1.42 1.03-2 1.69zm11 6-4-4v3a6.747 6.747 0 0 0-7 6.17A3.006 3.006 0 0 0 9.17 20 3.006 3.006 0 0 0 13 21.83 3.01 3.01 0 0 0 14.83 18c-.3-.86-.98-1.53-1.83-1.83.47-4 4.47-4.2 4.95-4.2v3zm-11.37.59A7.63 7.63 0 0 0 6 10V7l-4 4 4 4v-3c1.34.03 2.63.5 3.64 1.4.25-.64.58-1.25.99-1.81"/></svg>
+  
+  <span class="md-ellipsis">
+    Create Custom Generation Flow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../concepts/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/philosophy/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3c3.9 0 7 3.1 7 7 0 2.8-1.6 5.2-4 6.3V21H9v-3H8c-1.1 0-2-.9-2-2v-3H4.5c-.4 0-.7-.5-.4-.8L6 9.7C6.2 5.9 9.2 3 13 3m0-2C8.4 1 4.6 4.4 4.1 8.9L2.5 11c-.6.8-.6 1.8-.2 2.6.4.7 1 1.2 1.7 1.3V16c0 1.9 1.3 3.4 3 3.9V23h11v-5.5c2.5-1.7 4-4.4 4-7.5 0-5-4-9-9-9m1 13h-2v-1h2zm1.6-4.5c-.3.4-.6.8-1.1 1.1V12h-3v-1.4c-1.4-.8-1.9-2.7-1.1-4.1s2.7-1.9 4.1-1.1 1.9 2.7 1.1 4.1"/></svg>
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/workflow/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"/></svg>
+  
+  <span class="md-ellipsis">
+    Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/build-specification/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5.433 2.304A4.49 4.49 0 0 0 3.5 6c0 1.598.832 3.002 2.09 3.802.518.328.929.923.902 1.64v.008l-.164 3.337a.75.75 0 1 1-1.498-.073l.163-3.33c.002-.085-.05-.216-.207-.316A6 6 0 0 1 2 6a6 6 0 0 1 2.567-4.92 1.48 1.48 0 0 1 1.673-.04c.462.296.76.827.76 1.423v2.82c0 .082.041.16.11.206l.75.51a.25.25 0 0 0 .28 0l.75-.51A.25.25 0 0 0 9 5.282V2.463c0-.596.298-1.127.76-1.423a1.48 1.48 0 0 1 1.673.04A6 6 0 0 1 14 6a6 6 0 0 1-2.786 5.068c-.157.1-.209.23-.207.315l.163 3.33a.752.752 0 0 1-1.094.714.75.75 0 0 1-.404-.64l-.164-3.345c-.027-.717.384-1.312.902-1.64A4.5 4.5 0 0 0 12.5 6a4.49 4.49 0 0 0-1.933-3.696c-.024.017-.067.067-.067.16v2.818a1.75 1.75 0 0 1-.767 1.448l-.75.51a1.75 1.75 0 0 1-1.966 0l-.75-.51A1.75 1.75 0 0 1 5.5 5.282V2.463c0-.092-.043-.142-.067-.159"/></svg>
+  
+  <span class="md-ellipsis">
+    Build Specification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/register-model/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 18.54 7.37-5.74L21 14.07l-9 7-9-7 1.62-1.26zM12 16 3 9l9-7 9 7zm0-11.47L6.26 9 12 13.47 17.74 9z"/></svg>
+  
+  <span class="md-ellipsis">
+    Register Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/parsers/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 7v2h5V7zm10 2v2H9v2h3v2l3-3zm5 0v6h5V9zM2 11v2h5v-2zm0 4v2h5v-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Parsers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/generators/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7v2h5V7zM2 9v6h5V9zm10 0v2H9v2h3v2l3-3zm5 2v2h5v-2zm0 4v2h5v-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    Generators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/customization/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M15 2.75a.75.75 0 0 1-.75.75h-4a.75.75 0 0 1 0-1.5h4a.75.75 0 0 1 .75.75m-8.5.75v1.25a.75.75 0 0 0 1.5 0v-4a.75.75 0 0 0-1.5 0V2H1.75a.75.75 0 0 0 0 1.5zm1.25 5.25a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zM15 8a.75.75 0 0 1-.75.75H11.5V10a.75.75 0 1 1-1.5 0V6a.75.75 0 0 1 1.5 0v1.25h2.75A.75.75 0 0 1 15 8m-9 5.25v-2a.75.75 0 0 0-1.5 0v1.25H1.75a.75.75 0 0 0 0 1.5H4.5v1.25a.75.75 0 0 0 1.5 0zm9 0a.75.75 0 0 1-.75.75h-6a.75.75 0 0 1 0-1.5h6a.75.75 0 0 1 .75.75"/></svg>
+  
+  <span class="md-ellipsis">
+    Customization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/file-confidence/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.78 2.2 24 6.42 8.44 22 0 13.55l4.22-4.22 4.22 4.22zm0 2.8L8.44 16.36l-4.22-4.17-1.41 1.36 5.63 5.62L21.19 6.42z"/></svg>
+  
+  <span class="md-ellipsis">
+    File Confidence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../build-file/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Build File
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Build File
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/config/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 2a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2m-2 12c-.25 0-.46-.18-.5-.42l-.37-2.65c-.63-.25-1.17-.59-1.69-.99l-2.49 1.01c-.22.08-.49 0-.61-.22l-2-3.46a.493.493 0 0 1 .12-.64l2.11-1.66L4.5 12l.07-1-2.11-1.63a.493.493 0 0 1-.12-.64l2-3.46c.12-.22.39-.31.61-.22l2.49 1c.52-.39 1.06-.73 1.69-.98l.37-2.65c.04-.24.25-.42.5-.42h4c.25 0 .46.18.5.42l.37 2.65c.63.25 1.17.59 1.69.98l2.49-1c.22-.09.49 0 .61.22l2 3.46c.13.22.07.49-.12.64L19.43 11l.07 1-.07 1 2.11 1.63c.19.15.25.42.12.64l-2 3.46c-.12.22-.39.31-.61.22l-2.49-1c-.52.39-1.06.73-1.69.98l-.37 2.65c-.04.24-.25.42-.5.42zm1.25-18-.37 2.61c-1.2.25-2.26.89-3.03 1.78L5.44 7.35l-.75 1.3L6.8 10.2a5.55 5.55 0 0 0 0 3.6l-2.12 1.56.75 1.3 2.43-1.04c.77.88 1.82 1.52 3.01 1.76l.37 2.62h1.52l.37-2.61c1.19-.25 2.24-.89 3.01-1.77l2.43 1.04.75-1.3-2.12-1.55c.4-1.17.4-2.44 0-3.61l2.11-1.55-.75-1.3-2.41 1.04a5.42 5.42 0 0 0-3.03-1.77L12.75 4z"/></svg>
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Targets
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Targets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/sv/" class="md-nav__link">
+        
+  
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333331 4.2333334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="uvm.svg"
+   fill="currentColor"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="512px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="41.198121"
+     inkscape:cx="5.6313248"
+     inkscape:cy="7.5367515"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     inkscape:snap-global="true">
+    <sodipodi:guide
+       position="2.1166666,2.1166666"
+       orientation="-1,0"
+       id="guide1225"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="2.1166666,2.1166666"
+       orientation="0,1"
+       id="guide1227"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <path
+     d="M 1.5944251,3.2996309 C 0.95913276,3.2522209 0.44859329,3.0431038 0.19511338,2.7264732 0.13172645,2.6472945 0.0385447,2.469209 0.0385447,2.4272449 c 0,-0.022911 0.0028199,-0.023221 0.21122922,-0.023221 h 0.21122904 l 0.0382853,0.068002 C 0.68244643,2.7973526 1.1314324,3.0259164 1.7233552,3.0951575 1.8995119,3.1157635 2.2248964,3.1157805 2.400894,3.09519 2.8689584,3.040438 3.2834188,2.8780188 3.5066354,2.6618721 c 0.025431,-0.024626 0.04624,-0.039047 0.04624,-0.032043 0,0.02508 -0.1967955,0.2179764 -0.2906087,0.2848488 C 3.0424679,3.0713568 2.7111099,3.1980302 2.3617243,3.2589426 2.1402047,3.2975626 1.8049541,3.3153388 1.5944251,3.2996285 Z M 1.4149898,2.7840476 c -0.053308,-0.00617 -0.098694,-0.020411 -0.1516667,-0.04759 l -0.075594,-0.038785 -0.03065,0.029364 c -0.052048,0.049865 -0.057596,0.028624 -0.042324,-0.1620457 0.00732,-0.091524 0.014983,-0.1717464 0.017005,-0.1782714 0.00205,-0.00662 0.018211,-0.00973 0.036558,-0.00704 0.028939,0.00424 0.033792,0.010237 0.04047,0.049945 0.010146,0.060335 0.048893,0.1457464 0.086084,0.1897596 0.082919,0.098132 0.2371012,0.1155335 0.3403647,0.038415 0.056301,-0.042047 0.070734,-0.080903 0.066301,-0.1785054 -0.00349,-0.076737 -0.00697,-0.088103 -0.036443,-0.1191463 C 1.6293235,2.3224855 1.5784405,2.2943099 1.4498218,2.2409508 1.3431257,2.1966859 1.2138311,2.1128592 1.1787097,2.0651765 1.1327405,2.0027666 1.1211306,1.9591826 1.1211633,1.8491337 c 3.26e-5,-0.1224803 0.018599,-0.1672969 0.098391,-0.2375325 0.087187,-0.076746 0.1347632,-0.093806 0.2731343,-0.097945 0.085321,-0.00256 0.1411645,0.00144 0.1882382,0.013516 0.065288,0.016727 0.067717,0.016563 0.099091,-0.00664 0.02012,-0.014875 0.035984,-0.019937 0.04237,-0.013517 0.00562,0.00565 0.017473,0.078808 0.02635,0.1625854 0.014774,0.1394095 0.014648,0.1534771 -0.00147,0.1659243 -0.030581,0.023598 -0.044937,0.0152 -0.074394,-0.043521 C 1.6954828,1.6377322 1.6211367,1.5823832 1.5015299,1.5899991 c -0.083764,0.00533 -0.119317,0.027443 -0.1552836,0.096565 -0.020375,0.039159 -0.023871,0.05845 -0.018439,0.1017074 0.00368,0.029361 0.013439,0.066404 0.021666,0.082318 0.026313,0.050883 0.1236287,0.1047923 0.2675295,0.1482008 0.066685,0.020115 0.1683781,0.087496 0.2244128,0.1486937 0.06009,0.065626 0.083768,0.1446058 0.077228,0.2575935 -0.010869,0.187772 -0.1294298,0.326269 -0.3071641,0.358816 -0.071037,0.013008 -0.085353,0.01302 -0.1964776,1.563e-4 z M 2.5539516,2.7222713 C 2.5141739,2.635843 2.2623896,1.9931663 2.1884317,1.7892871 2.1602121,1.7114934 2.130108,1.6383847 2.121534,1.626824 2.112234,1.614286 2.087257,1.603312 2.05963,1.599623 2.017454,1.593983 2.013315,1.590683 2.013315,1.562544 V 1.531645 l 0.2910497,-0.00173 0.29105,-0.00173 -2.4e-6,0.035361 -2.3e-6,0.035362 H 2.535568 c -0.078453,0 -0.1074517,0.025253 -0.097301,0.084737 0.00679,0.039823 0.2417262,0.7536587 0.2513114,0.7636093 0.00859,0.00892 0.023366,-0.022542 0.091855,-0.1955297 0.1306843,-0.3300856 0.197761,-0.5175154 0.2029192,-0.5670085 0.00453,-0.043475 0.00183,-0.052579 -0.020192,-0.068002 -0.013982,-0.00979 -0.044228,-0.017805 -0.067213,-0.017805 -0.040258,0 -0.041664,-0.00124 -0.03838,-0.033914 l 0.00341,-0.033914 h 0.2230419 0.2230457 l 0.00341,0.033914 c 0.00328,0.032628 0.00183,0.033916 -0.038081,0.033955 -0.089489,8.71e-5 -0.1343432,0.052718 -0.2271478,0.2665262 -0.4372034,1.0072585 -0.4013063,0.9302604 -0.43369,0.9302604 -0.020029,0 -0.031309,-0.014136 -0.058603,-0.073442 z M 3.7342624,1.7593665 C 3.5168915,1.3713178 2.9050144,1.1203222 2.1765203,1.1203712 1.5646887,1.1204165 1.0323789,1.2869981 0.71995093,1.5762019 0.6531147,1.6380698 0.69093786,1.5786362 0.77533751,1.4891648 0.86529064,1.3938092 0.95258103,1.3245855 1.0760003,1.2507299 1.5404231,0.97281368 2.274831,0.86102112 2.9326999,0.96810015 3.5474657,1.0681639 3.9860328,1.3305439 4.1569861,1.7005497 4.2193501,1.8355284 4.2305079,1.8273682 3.9835839,1.8273682 H 3.7723547 Z"
+     id="path931"
+     sodipodi:nodetypes="cssscsscsssscccscssscssssssccscccsccsscsccsssccsscsscccccsssssssscccsccssscsscssscs" />
+</svg>
+  
+  <span class="md-ellipsis">
+    SystemVerilog Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/sv-package/" class="md-nav__link">
+        
+  
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333331 4.2333334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="uvm.svg"
+   fill="currentColor"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="512px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="41.198121"
+     inkscape:cx="5.6313248"
+     inkscape:cy="7.5367515"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     inkscape:snap-global="true">
+    <sodipodi:guide
+       position="2.1166666,2.1166666"
+       orientation="-1,0"
+       id="guide1225"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="2.1166666,2.1166666"
+       orientation="0,1"
+       id="guide1227"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <path
+     d="M 1.5944251,3.2996309 C 0.95913276,3.2522209 0.44859329,3.0431038 0.19511338,2.7264732 0.13172645,2.6472945 0.0385447,2.469209 0.0385447,2.4272449 c 0,-0.022911 0.0028199,-0.023221 0.21122922,-0.023221 h 0.21122904 l 0.0382853,0.068002 C 0.68244643,2.7973526 1.1314324,3.0259164 1.7233552,3.0951575 1.8995119,3.1157635 2.2248964,3.1157805 2.400894,3.09519 2.8689584,3.040438 3.2834188,2.8780188 3.5066354,2.6618721 c 0.025431,-0.024626 0.04624,-0.039047 0.04624,-0.032043 0,0.02508 -0.1967955,0.2179764 -0.2906087,0.2848488 C 3.0424679,3.0713568 2.7111099,3.1980302 2.3617243,3.2589426 2.1402047,3.2975626 1.8049541,3.3153388 1.5944251,3.2996285 Z M 1.4149898,2.7840476 c -0.053308,-0.00617 -0.098694,-0.020411 -0.1516667,-0.04759 l -0.075594,-0.038785 -0.03065,0.029364 c -0.052048,0.049865 -0.057596,0.028624 -0.042324,-0.1620457 0.00732,-0.091524 0.014983,-0.1717464 0.017005,-0.1782714 0.00205,-0.00662 0.018211,-0.00973 0.036558,-0.00704 0.028939,0.00424 0.033792,0.010237 0.04047,0.049945 0.010146,0.060335 0.048893,0.1457464 0.086084,0.1897596 0.082919,0.098132 0.2371012,0.1155335 0.3403647,0.038415 0.056301,-0.042047 0.070734,-0.080903 0.066301,-0.1785054 -0.00349,-0.076737 -0.00697,-0.088103 -0.036443,-0.1191463 C 1.6293235,2.3224855 1.5784405,2.2943099 1.4498218,2.2409508 1.3431257,2.1966859 1.2138311,2.1128592 1.1787097,2.0651765 1.1327405,2.0027666 1.1211306,1.9591826 1.1211633,1.8491337 c 3.26e-5,-0.1224803 0.018599,-0.1672969 0.098391,-0.2375325 0.087187,-0.076746 0.1347632,-0.093806 0.2731343,-0.097945 0.085321,-0.00256 0.1411645,0.00144 0.1882382,0.013516 0.065288,0.016727 0.067717,0.016563 0.099091,-0.00664 0.02012,-0.014875 0.035984,-0.019937 0.04237,-0.013517 0.00562,0.00565 0.017473,0.078808 0.02635,0.1625854 0.014774,0.1394095 0.014648,0.1534771 -0.00147,0.1659243 -0.030581,0.023598 -0.044937,0.0152 -0.074394,-0.043521 C 1.6954828,1.6377322 1.6211367,1.5823832 1.5015299,1.5899991 c -0.083764,0.00533 -0.119317,0.027443 -0.1552836,0.096565 -0.020375,0.039159 -0.023871,0.05845 -0.018439,0.1017074 0.00368,0.029361 0.013439,0.066404 0.021666,0.082318 0.026313,0.050883 0.1236287,0.1047923 0.2675295,0.1482008 0.066685,0.020115 0.1683781,0.087496 0.2244128,0.1486937 0.06009,0.065626 0.083768,0.1446058 0.077228,0.2575935 -0.010869,0.187772 -0.1294298,0.326269 -0.3071641,0.358816 -0.071037,0.013008 -0.085353,0.01302 -0.1964776,1.563e-4 z M 2.5539516,2.7222713 C 2.5141739,2.635843 2.2623896,1.9931663 2.1884317,1.7892871 2.1602121,1.7114934 2.130108,1.6383847 2.121534,1.626824 2.112234,1.614286 2.087257,1.603312 2.05963,1.599623 2.017454,1.593983 2.013315,1.590683 2.013315,1.562544 V 1.531645 l 0.2910497,-0.00173 0.29105,-0.00173 -2.4e-6,0.035361 -2.3e-6,0.035362 H 2.535568 c -0.078453,0 -0.1074517,0.025253 -0.097301,0.084737 0.00679,0.039823 0.2417262,0.7536587 0.2513114,0.7636093 0.00859,0.00892 0.023366,-0.022542 0.091855,-0.1955297 0.1306843,-0.3300856 0.197761,-0.5175154 0.2029192,-0.5670085 0.00453,-0.043475 0.00183,-0.052579 -0.020192,-0.068002 -0.013982,-0.00979 -0.044228,-0.017805 -0.067213,-0.017805 -0.040258,0 -0.041664,-0.00124 -0.03838,-0.033914 l 0.00341,-0.033914 h 0.2230419 0.2230457 l 0.00341,0.033914 c 0.00328,0.032628 0.00183,0.033916 -0.038081,0.033955 -0.089489,8.71e-5 -0.1343432,0.052718 -0.2271478,0.2665262 -0.4372034,1.0072585 -0.4013063,0.9302604 -0.43369,0.9302604 -0.020029,0 -0.031309,-0.014136 -0.058603,-0.073442 z M 3.7342624,1.7593665 C 3.5168915,1.3713178 2.9050144,1.1203222 2.1765203,1.1203712 1.5646887,1.1204165 1.0323789,1.2869981 0.71995093,1.5762019 0.6531147,1.6380698 0.69093786,1.5786362 0.77533751,1.4891648 0.86529064,1.3938092 0.95258103,1.3245855 1.0760003,1.2507299 1.5404231,0.97281368 2.274831,0.86102112 2.9326999,0.96810015 3.5474657,1.0681639 3.9860328,1.3305439 4.1569861,1.7005497 4.2193501,1.8355284 4.2305079,1.8273682 3.9835839,1.8273682 H 3.7723547 Z"
+     id="path931"
+     sodipodi:nodetypes="cssscsscsssscccscssscssssssccscccsccsscsccsssccsscsscccccsssssssscccsccssscsscssscs" />
+</svg>
+  
+  <span class="md-ellipsis">
+    SystemVerilog Package
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/verilog/" class="md-nav__link">
+        
+  
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333331 4.2333334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="verilator.svg"
+   fill="currentColor"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="512px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="15.673606"
+     inkscape:cx="32.059753"
+     inkscape:cy="15.074465"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     inkscape:snap-global="false"
+     inkscape:rotation="1">
+    <sodipodi:guide
+       position="2.1166666,2.1166666"
+       orientation="0,1"
+       id="guide1560"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="2.1166665,2.1166667"
+       orientation="1,0"
+       id="guide1562" />
+    <sodipodi:guide
+       position="3.6542692,3.1012237"
+       orientation="0,-1"
+       id="guide18577" />
+    <sodipodi:guide
+       position="4.2293806,1.135294"
+       orientation="0,-1"
+       id="guide18579" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <path
+     id="path29633"
+     d="m 3.8840101,1.4515647 q -0.094832,0 -0.159491,0.048849 -0.064659,0.048849 -0.1077642,0.1373874 -0.04095,0.085486 -0.060348,0.2076077 -0.017243,0.1190691 -0.017243,0.2656157 0,0.3388891 0.075435,0.5007009 0.075435,0.1587588 0.2219942,0.1587588 0.023708,0 0.051727,-0.00306 0.028019,-0.00306 0.051727,-0.00916 V 2.0682816 H 4.205147 v 0.9433938 q -0.047417,0.024424 -0.1487146,0.054955 -0.099143,0.030531 -0.2413916,0.030531 -0.1250066,0 -0.226305,-0.061061 Q 3.4895918,2.9719864 3.4184677,2.8498639 3.3473433,2.7246887 3.308548,2.5415054 3.269753,2.3552691 3.269753,2.1110248 q 0,-0.2411913 0.045261,-0.4243745 0.045261,-0.1862363 0.1228511,-0.3114115 0.07759,-0.1251752 0.1831992,-0.1862363 0.1056088,-0.064114 0.2263047,-0.064114 0.07759,0 0.1379382,0.018319 0.062503,0.015266 0.1077642,0.036637 0.045261,0.021371 0.07328,0.045796 0.030174,0.024424 0.045261,0.036637 l -0.06897,0.2991987 Q 4.0952266,1.5187334 4.0262574,1.4851496 3.9572882,1.4515658 3.8840087,1.4515658 Z M 2.461527,2.1110244 q 0,0.1373875 0.00647,0.2595097 0.00862,0.119069 0.030174,0.2076076 0.023708,0.088539 0.064659,0.1404405 0.04095,0.051902 0.1099194,0.051902 0.066814,0 0.1077642,-0.051902 0.043105,-0.051902 0.064658,-0.1404405 0.023708,-0.091592 0.030174,-0.2106607 0.00862,-0.1190691 0.00862,-0.2564566 0,-0.1373874 -0.00862,-0.2564565 -0.00647,-0.1221222 -0.030174,-0.2106607 -0.021553,-0.088539 -0.062503,-0.1404405 -0.04095,-0.051902 -0.1099194,-0.051902 -0.068969,0 -0.1099194,0.051902 -0.04095,0.051902 -0.064659,0.1434935 -0.021553,0.088538 -0.030174,0.2076077 -0.00647,0.1190691 -0.00647,0.2564565 z m -0.2694106,0 q 0,-0.4884887 0.1271619,-0.735786 0.1271616,-0.2503504 0.3534664,-0.2503504 0.2349261,0 0.3577772,0.2503504 0.1228511,0.2472973 0.1228511,0.735786 0,0.4884887 -0.1250066,0.7388391 Q 2.9033601,3.0971609 2.6749,3.0971609 q -0.2349258,0 -0.3599324,-0.2472974 Q 2.1921164,2.5995131 2.1921164,2.1110244 Z M 2.0477165,3.0574713 H 1.2093112 V 1.1676307 h 0.2672552 v 1.578429 h 0.5711501 z m -1.66818542,0 Q 0.32780425,2.8468105 0.26961163,2.5811948 0.21141894,2.3155791 0.15969212,2.0530164 0.10796534,1.7874007 0.06701492,1.5523155 0.02606455,1.3172303 0.00666699,1.1676307 h 0.28018689 q 0.0129315,0.1465465 0.038795,0.341942 0.0258635,0.1923425 0.0560373,0.3999501 0.0323293,0.2045547 0.0668138,0.4060563 0.0366398,0.1984484 0.0711244,0.3572073 0.0344845,-0.1557058 0.0689691,-0.3541543 0.0344845,-0.2015015 0.0646585,-0.4060562 0.030174,-0.2076077 0.0560374,-0.4030032 0.0258635,-0.1953955 0.0431055,-0.341942 H 1.0304264 Q 1.0045628,1.3508139 0.96576789,1.5767399 0.92912813,1.802666 0.87955655,2.0530164 0.83214055,2.3003138 0.77394765,2.5598234 0.71575497,2.81628 0.65325173,3.0574713 Z" />
+</svg>
+  
+  <span class="md-ellipsis">
+    Verilog Module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/verilog-header/" class="md-nav__link">
+        
+  
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333331 4.2333334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="verilator.svg"
+   fill="currentColor"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="512px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="15.673606"
+     inkscape:cx="32.059753"
+     inkscape:cy="15.074465"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     inkscape:snap-global="false"
+     inkscape:rotation="1">
+    <sodipodi:guide
+       position="2.1166666,2.1166666"
+       orientation="0,1"
+       id="guide1560"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="2.1166665,2.1166667"
+       orientation="1,0"
+       id="guide1562" />
+    <sodipodi:guide
+       position="3.6542692,3.1012237"
+       orientation="0,-1"
+       id="guide18577" />
+    <sodipodi:guide
+       position="4.2293806,1.135294"
+       orientation="0,-1"
+       id="guide18579" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <path
+     id="path29633"
+     d="m 3.8840101,1.4515647 q -0.094832,0 -0.159491,0.048849 -0.064659,0.048849 -0.1077642,0.1373874 -0.04095,0.085486 -0.060348,0.2076077 -0.017243,0.1190691 -0.017243,0.2656157 0,0.3388891 0.075435,0.5007009 0.075435,0.1587588 0.2219942,0.1587588 0.023708,0 0.051727,-0.00306 0.028019,-0.00306 0.051727,-0.00916 V 2.0682816 H 4.205147 v 0.9433938 q -0.047417,0.024424 -0.1487146,0.054955 -0.099143,0.030531 -0.2413916,0.030531 -0.1250066,0 -0.226305,-0.061061 Q 3.4895918,2.9719864 3.4184677,2.8498639 3.3473433,2.7246887 3.308548,2.5415054 3.269753,2.3552691 3.269753,2.1110248 q 0,-0.2411913 0.045261,-0.4243745 0.045261,-0.1862363 0.1228511,-0.3114115 0.07759,-0.1251752 0.1831992,-0.1862363 0.1056088,-0.064114 0.2263047,-0.064114 0.07759,0 0.1379382,0.018319 0.062503,0.015266 0.1077642,0.036637 0.045261,0.021371 0.07328,0.045796 0.030174,0.024424 0.045261,0.036637 l -0.06897,0.2991987 Q 4.0952266,1.5187334 4.0262574,1.4851496 3.9572882,1.4515658 3.8840087,1.4515658 Z M 2.461527,2.1110244 q 0,0.1373875 0.00647,0.2595097 0.00862,0.119069 0.030174,0.2076076 0.023708,0.088539 0.064659,0.1404405 0.04095,0.051902 0.1099194,0.051902 0.066814,0 0.1077642,-0.051902 0.043105,-0.051902 0.064658,-0.1404405 0.023708,-0.091592 0.030174,-0.2106607 0.00862,-0.1190691 0.00862,-0.2564566 0,-0.1373874 -0.00862,-0.2564565 -0.00647,-0.1221222 -0.030174,-0.2106607 -0.021553,-0.088539 -0.062503,-0.1404405 -0.04095,-0.051902 -0.1099194,-0.051902 -0.068969,0 -0.1099194,0.051902 -0.04095,0.051902 -0.064659,0.1434935 -0.021553,0.088538 -0.030174,0.2076077 -0.00647,0.1190691 -0.00647,0.2564565 z m -0.2694106,0 q 0,-0.4884887 0.1271619,-0.735786 0.1271616,-0.2503504 0.3534664,-0.2503504 0.2349261,0 0.3577772,0.2503504 0.1228511,0.2472973 0.1228511,0.735786 0,0.4884887 -0.1250066,0.7388391 Q 2.9033601,3.0971609 2.6749,3.0971609 q -0.2349258,0 -0.3599324,-0.2472974 Q 2.1921164,2.5995131 2.1921164,2.1110244 Z M 2.0477165,3.0574713 H 1.2093112 V 1.1676307 h 0.2672552 v 1.578429 h 0.5711501 z m -1.66818542,0 Q 0.32780425,2.8468105 0.26961163,2.5811948 0.21141894,2.3155791 0.15969212,2.0530164 0.10796534,1.7874007 0.06701492,1.5523155 0.02606455,1.3172303 0.00666699,1.1676307 h 0.28018689 q 0.0129315,0.1465465 0.038795,0.341942 0.0258635,0.1923425 0.0560373,0.3999501 0.0323293,0.2045547 0.0668138,0.4060563 0.0366398,0.1984484 0.0711244,0.3572073 0.0344845,-0.1557058 0.0689691,-0.3541543 0.0344845,-0.2015015 0.0646585,-0.4060562 0.030174,-0.2076077 0.0560374,-0.4030032 0.0258635,-0.1953955 0.0431055,-0.341942 H 1.0304264 Q 1.0045628,1.3508139 0.96576789,1.5767399 0.92912813,1.802666 0.87955655,2.0530164 0.83214055,2.3003138 0.77394765,2.5598234 0.71575497,2.81628 0.65325173,3.0574713 Z" />
+</svg>
+  
+  <span class="md-ellipsis">
+    Verilog Header
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/vhdl/" class="md-nav__link">
+        
+  
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333331 4.2333334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="verilator.svg"
+   fill="currentColor"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <path
+     id="path18455"
+     d="M 4.2293808,3.0980394 H 3.3851607 V 1.1321097 h 0.2691087 v 1.64198 H 4.2293808 Z M 2.5300936,2.7804417 q 0.01085,0.00318 0.023874,0.00318 0.013022,0 0.023873,0 0.09115,0 0.1519163,-0.050816 0.062937,-0.050816 0.099831,-0.139743 0.039064,-0.088928 0.054256,-0.2096144 0.017362,-0.1238635 0.017362,-0.269958 0,-0.1270392 -0.013022,-0.2477263 -0.013024,-0.1206876 -0.045578,-0.2127906 -0.032554,-0.092104 -0.08898,-0.1460949 -0.056426,-0.057166 -0.1454055,-0.057166 -0.017362,0 -0.039064,0.00318 -0.021704,0 -0.039064,0.00635 z M 3.1724822,2.1134866 q 0,0.273134 -0.047745,0.4668685 -0.045575,0.1905586 -0.1280438,0.3112458 -0.082469,0.1206875 -0.1974911,0.1778548 -0.1128519,0.053992 -0.2495765,0.053992 -0.071618,0 -0.1410652,-0.012709 -0.067277,-0.00954 -0.1454054,-0.034935 V 1.1575176 q 0.09115,-0.028584 0.1714483,-0.038112 0.080299,-0.00952 0.1497459,-0.00952 0.1323842,0 0.2408957,0.057168 0.1106818,0.057168 0.18664,0.1810304 0.075958,0.1206877 0.1171925,0.3112459 0.043405,0.1873827 0.043405,0.4541652 z M 2.0483063,1.1321097 V 3.0980394 H 1.7813677 V 2.2309977 H 1.4254498 V 3.0980394 H 1.1585113 V 1.1321097 H 1.4254498 V 1.9070481 H 1.7813677 V 1.1321097 Z M 0.37940235,3.0980394 Q 0.32731679,2.878897 0.26872052,2.6025869 0.21012429,2.326277 0.15803874,2.0531431 0.10595318,1.776833 0.06471879,1.5322828 0.02348438,1.2877326 0.0039523,1.1321097 h 0.28213009 q 0.0130214,0.1524468 0.0390642,0.3557095 0.0260428,0.2000865 0.056426,0.4160529 0.0325535,0.2127904 0.0672773,0.4224049 0.0368938,0.2064384 0.0716176,0.3715893 0.0347237,-0.1619747 0.0694473,-0.3684133 0.0347237,-0.2096145 0.0651069,-0.4224049 0.0303832,-0.2159665 0.056426,-0.4192289 0.0260427,-0.2032627 0.0434046,-0.3557095 H 1.0348123 Q 1.0087693,1.3226685 0.96970529,1.5576906 0.93281139,1.7927129 0.88289609,2.0531431 0.83515099,2.310397 0.77655474,2.5803551 0.71795854,2.8471372 0.65502178,3.0980394 Z" />
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="512px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="31.347212"
+     inkscape:cx="6.6855047"
+     inkscape:cy="10.888766"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5"
+     inkscape:snap-global="true"
+     inkscape:rotation="1">
+    <sodipodi:guide
+       position="2.1166666,2.1166666"
+       orientation="0,1"
+       id="guide1560"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="2.1166665,2.1166667"
+       orientation="1,0"
+       id="guide1562" />
+    <sodipodi:guide
+       position="3.6542692,3.1012237"
+       orientation="0,-1"
+       id="guide18577" />
+    <sodipodi:guide
+       position="4.2293806,1.135294"
+       orientation="0,-1"
+       id="guide18579" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+</svg>
+  
+  <span class="md-ellipsis">
+    VHDL Entity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/markdown/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.56 18H3.44C2.65 18 2 17.37 2 16.59V7.41C2 6.63 2.65 6 3.44 6h17.12c.79 0 1.44.63 1.44 1.41v9.18c0 .78-.65 1.41-1.44 1.41M3.44 6.94c-.26 0-.48.21-.48.47v9.19c0 .25.22.46.48.46h17.12c.26 0 .48-.21.48-.46V7.41c0-.26-.22-.47-.48-.47zm1.45 8.25V8.81h1.92l1.92 2.35 1.92-2.35h1.93v6.38h-1.93v-3.66l-1.92 2.35-1.92-2.35v3.66zm12.01 0-2.9-3.1h1.94V8.81h1.92v3.28h1.93z"/></svg>
+  
+  <span class="md-ellipsis">
+    Markdown Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/asciidoc/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.069 0H5.932A5.934 5.934 0 0 0 0 5.932v12.136A5.935 5.935 0 0 0 5.932 24h12.136A5.934 5.934 0 0 0 24 18.068V5.932A5.934 5.934 0 0 0 18.069 0m-7.361 15.404H8.81l-.005.013L7.2 19.282a.506.506 0 1 1-.934-.388l1.45-3.49H4.868a.506.506 0 1 1 0-1.012h5.84a.506.506 0 1 1 0 1.012zm7.919 4.165a.506.506 0 0 1-.655-.29L12.621 6.232l-2.395 5.76h1.55a.506.506 0 1 1 0 1.012h-5.84a.506.506 0 1 1 0-1.011h3.195l.004-.012 3.022-7.269a.51.51 0 0 1 .457-.311.51.51 0 0 1 .478.314l5.816 14.182a.506.506 0 0 1-.281.673"/></svg>
+  
+  <span class="md-ellipsis">
+    Asciidoc Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/c-header/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.45 15.97.42 2.44c-.26.14-.68.27-1.24.39-.57.13-1.24.2-2.01.2-2.21-.04-3.87-.7-4.98-1.96-1.14-1.27-1.68-2.88-1.68-4.83C6 9.9 6.68 8.13 8 6.89 9.28 5.64 10.92 5 12.9 5c.75 0 1.4.07 1.94.19s.94.25 1.2.4l-.6 2.49-1.04-.34c-.4-.1-.87-.15-1.4-.15-1.15-.01-2.11.36-2.86 1.1-.76.73-1.14 1.85-1.18 3.34.01 1.36.37 2.42 1.08 3.2.71.77 1.7 1.17 2.99 1.18l1.33-.12c.43-.08.79-.19 1.09-.32"/></svg>
+  
+  <span class="md-ellipsis">
+    C Header
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-file/targets/custom/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h1v2h-3V7h2zm5.5 0-2.12-2.12 1.25-1.25L20 8v2h-2v1h-3V9zM13 3.5V2h-1v2h1v2h-2V4H9V2H8v2H6v1H4V4c0-1.11.89-2 2-2h8l2.36 2.36-1.25 1.25zM20 20a2 2 0 0 1-2 2h-2v-2h2v-1h2zm-2-5h2v3h-2zm-6 7v-2h3v2zm-4 0v-2h3v2zm-2 0a2 2 0 0 1-2-2v-2h2v2h1v2zm-2-8h2v3H4zm0-4h2v3H4zm14 1h2v3h-2zM4 6h2v3H4z"/></svg>
+  
+  <span class="md-ellipsis">
+    Custom Target
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../register-file/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Register File
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Register File
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../register-file/yaml/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m0 .97 4.111 6.453v4.09h2.638v-4.09L11.053.969H8.214L5.58 5.125 2.965.969Zm12.093.024-4.47 10.544h2.114l.97-2.345h4.775l.804 2.345h2.26L14.255.994Zm1.133 2.225 1.463 3.87h-3.096zm3.06 9.475v10.29H24v-2.199h-5.454v-8.091zm-12.175.002v10.335h2.217v-7.129l2.32 4.792h1.746l2.4-4.96v7.295h2.127V12.696h-2.904L9.44 17.37l-2.455-4.674Z"/></svg>
+  
+  <span class="md-ellipsis">
+    YAML Format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../register-file/json/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.043 23.968c.479-.004.953-.029 1.426-.094a11.8 11.8 0 0 0 3.146-.863 12.4 12.4 0 0 0 3.793-2.542 12 12 0 0 0 2.44-3.427 11.8 11.8 0 0 0 1.02-3.476c.149-1.16.135-2.346-.045-3.499a12 12 0 0 0-.793-2.788 11 11 0 0 0-.854-1.617c-1.168-1.837-2.861-3.314-4.81-4.3a13 13 0 0 0-2.172-.87h-.005c.119.063.24.132.345.201.12.074.239.146.351.225a9 9 0 0 1 1.559 1.33c1.063 1.145 1.797 2.548 2.218 4.041.284.982.434 1.998.495 3.017.044.743.044 1.491-.047 2.229-.149 1.27-.554 2.51-1.228 3.596a7.5 7.5 0 0 1-1.903 2.084c-1.244.928-2.877 1.482-4.436 1.114a4 4 0 0 1-.748-.258 4.7 4.7 0 0 1-.779-.45 6 6 0 0 1-1.244-1.105 6.5 6.5 0 0 1-1.049-1.747 7.4 7.4 0 0 1-.494-2.54c-.03-1.273.225-2.553.854-3.67a6.4 6.4 0 0 1 1.663-1.918c.225-.178.464-.333.704-.479l.016-.007a5.1 5.1 0 0 0-1.441-.12 5 5 0 0 0-1.228.24c-.359.12-.704.27-1.019.45a6 6 0 0 0-.733.494c-.211.18-.42.36-.615.555-1.123 1.153-1.768 2.682-2.022 4.256-.15.973-.15 1.96-.091 2.95.105 1.395.391 2.787.945 4.062a8.5 8.5 0 0 0 1.348 2.173 8.14 8.14 0 0 0 3.132 2.23 8 8 0 0 0 2.113.54c.074.015.149.015.209.015zm-2.934-.398a4 4 0 0 1-.45-.228 8.5 8.5 0 0 1-2.038-1.534c-1.094-1.137-1.827-2.566-2.247-4.08a15.2 15.2 0 0 1-.495-3.172 12 12 0 0 1 .046-2.082c.135-1.257.495-2.501 1.124-3.58a6.9 6.9 0 0 1 1.783-2.053 6.2 6.2 0 0 1 1.633-.9 5.36 5.36 0 0 1 3.522-.045c.029 0 .029 0 .045.03.015.015.045.015.06.03.045.016.104.045.165.074.239.12.479.271.704.42a6.3 6.3 0 0 1 2.097 2.502c.42.914.615 1.934.631 2.938.014 1.079-.18 2.157-.645 3.146a6.4 6.4 0 0 1-2.638 2.832c.09.03.18.045.271.075.225.044.449.074.688.074 1.468.045 2.892-.66 3.94-1.647q.293-.27.54-.585c.225-.27.435-.54.614-.823.239-.375.435-.75.614-1.154a8 8 0 0 0 .509-1.664c.196-1.004.211-2.022.149-3.026-.135-2.022-.673-4.045-1.842-5.724a9 9 0 0 0-.555-.719 10 10 0 0 0-1.063-1.034 8.5 8.5 0 0 0-1.363-.915 10 10 0 0 0-1.692-.598l-.3-.06c-.209-.03-.42-.044-.634-.06a9 9 0 0 0-1.015.016c-.704.045-1.412.16-2.112.337C5.799 1.227 2.863 3.566 1.3 6.67A11.8 11.8 0 0 0 .238 9.801a11.8 11.8 0 0 0-.104 3.775c.12 1.02.374 2.023.778 2.977.227.57.511 1.124.825 1.648 1.094 1.783 2.683 3.236 4.51 4.24.688.39 1.408.69 2.157.944.226.074.45.15.689.21z"/></svg>
+  
+  <span class="md-ellipsis">
+    JSON Format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../register-file/toml/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.014 0h5.34v2.652H2.888v18.681h2.468V24H.015zm17.622 5.049v2.78h-4.274v12.935h-3.008V7.83H6.059V5.05zM23.986 24h-5.34v-2.652h2.467V2.667h-2.468V0h5.34v24Z"/></svg>
+  
+  <span class="md-ellipsis">
+    TOML Format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../register-file/custom/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h1v2h-3V7h2zm5.5 0-2.12-2.12 1.25-1.25L20 8v2h-2v1h-3V9zM13 3.5V2h-1v2h1v2h-2V4H9V2H8v2H6v1H4V4c0-1.11.89-2 2-2h8l2.36 2.36-1.25 1.25zM20 20a2 2 0 0 1-2 2h-2v-2h2v-1h2zm-2-5h2v3h-2zm-6 7v-2h3v2zm-4 0v-2h3v2zm-2 0a2 2 0 0 1-2-2v-2h2v2h1v2zm-2-8h2v3H4zm0-4h2v3H4zm14 1h2v3h-2zM4 6h2v3H4z"/></svg>
+  
+  <span class="md-ellipsis">
+    Custom Format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cli/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CLI
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            CLI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../api/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../fields/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Fields
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Fields
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    Protocols
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Protocols
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Archive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/esynr3z/corsair/edit/master/docs/hardware/protocols/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="micro-architecture-specifications-for-protocol-bridges">Micro Architecture Specifications for Protocol Bridges<a class="headerlink" href="#micro-architecture-specifications-for-protocol-bridges" title="Permanent link">&para;</a></h1>
+<p>TBD</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 17, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 17, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../fields/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Micro Architecture Specifications for Field Modes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Micro Architecture Specifications for Field Modes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../blog/" class="md-footer__link md-footer__link--next" aria-label="Next: Blog">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Blog
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.action.edit", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
