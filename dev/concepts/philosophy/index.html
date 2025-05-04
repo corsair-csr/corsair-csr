@@ -963,6 +963,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3c3.9 0 7 3.1 7 7 0 2.8-1.6 5.2-4 6.3V21H9v-3H8c-1.1 0-2-.9-2-2v-3H4.5c-.4 0-.7-.5-.4-.8L6 9.7C6.2 5.9 9.2 3 13 3m0-2C8.4 1 4.6 4.4 4.1 8.9L2.5 11c-.6.8-.6 1.8-.2 2.6.4.7 1 1.2 1.7 1.3V16c0 1.9 1.3 3.4 3 3.9V23h11v-5.5c2.5-1.7 4-4.4 4-7.5 0-5-4-9-9-9m1 13h-2v-1h2zm1.6-4.5c-.3.4-.6.8-1.1 1.1V12h-3v-1.4c-1.4-.8-1.9-2.7-1.1-4.1s2.7-1.9 4.1-1.1 1.9 2.7 1.1 4.1"/></svg>
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -974,6 +987,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Goal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Principles
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2417,7 +2467,47 @@
 
 
 <h1 id="philosophy">Philosophy<a class="headerlink" href="#philosophy" title="Permanent link">&para;</a></h1>
-<p>TODO</p>
+<p>Creating and maintaining a CSR map in any HDL project is a tedious task. Additionally, register information exists simultaneously across different abstraction layers:</p>
+<ul>
+<li>Hardware</li>
+<li>Software</li>
+<li>Documentation</li>
+</ul>
+<p>It is easy to make mistakes and lose consistency between these layers. While automation can help address this issue, the unique nature of HDL project workflows often leads to ad hoc solutions.</p>
+<h2 id="the-goal">The Goal<a class="headerlink" href="#the-goal" title="Permanent link">&para;</a></h2>
+<p><strong>The primary goal of this project is to provide a CSR management tool that generates a consistent set of artifacts for various purposes from a single register map description. The tool is designed to be flexible enough to integrate into ANY workflow.</strong></p>
+<h2 id="core-principles">Core Principles<a class="headerlink" href="#core-principles" title="Permanent link">&para;</a></h2>
+<p>The project's architecture and technical solutions are built on the following principles:</p>
+<ol>
+<li>
+<p><strong>Single source of truth</strong>.
+Generate all artifacts from a single meta-description of the register model.</p>
+</li>
+<li>
+<p><strong>Low barrier to entry</strong>.
+Typical EDA tools are often cryptic and sometimes even hostile to inexperienced users. Users should be able to get started quickly by reading a short README and running a few commands.</p>
+</li>
+<li>
+<p><strong>Automation first</strong>.
+Use formats that are both human- and machine-readable for input and intermediate data. Provide schemas, organize output files predictably, and offer CLI options for fine-tuning.</p>
+</li>
+<li>
+<p><strong>Customizable workflows</strong>.
+Allow seamless user-side extensions for attributes, configurations, templates, and input/output formats. Provide a fully-featured API to enable creating unique workflows from scratch.</p>
+</li>
+<li>
+<p><strong>Validate everything</strong>.
+Mistakes can have significant consequences. Validate all input data thoroughly at runtime. Test and lint rigorously all potential outputs during development.</p>
+</li>
+<li>
+<p><strong>Usability matters</strong>.
+Provide autocompletion wherever possible. Always require the minimum necessary input from the user, inferring the rest or filling in with reasonable defaults.</p>
+</li>
+<li>
+<p><strong>Output Neutrality</strong>.
+Treat all potential output artifacts—be it HDL, documentation, or others—as first-class citizens. Design the tool to be inherently flexible, without built-in biases towards specific output types or formats.</p>
+</li>
+</ol>
 
 
 
