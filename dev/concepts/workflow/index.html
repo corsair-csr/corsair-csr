@@ -1033,13 +1033,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../register-model/" class="md-nav__link">
+      <a href="../loaders/" class="md-nav__link">
         
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 18.54 7.37-5.74L21 14.07l-9 7-9-7 1.62-1.26zM12 16 3 9l9-7 9 7zm0-11.47L6.26 9 12 13.47 17.74 9z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 7v2h5V7zm10 2v2H9v2h3v2l3-3zm5 0v6h5V9zM2 11v2h5v-2zm0 4v2h5v-2z"/></svg>
   
   <span class="md-ellipsis">
-    Register Model
+    Loaders
   </span>
   
 
@@ -1056,13 +1056,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../parsers/" class="md-nav__link">
+      <a href="../register-model/" class="md-nav__link">
         
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 7v2h5V7zm10 2v2H9v2h3v2l3-3zm5 0v6h5V9zM2 11v2h5v-2zm0 4v2h5v-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 18.54 7.37-5.74L21 14.07l-9 7-9-7 1.62-1.26zM12 16 3 9l9-7 9 7zm0-11.47L6.26 9 12 13.47 17.74 9z"/></svg>
   
   <span class="md-ellipsis">
-    Parsers
+    Register Model
   </span>
   
 
@@ -2418,12 +2418,50 @@
 
 <h1 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h1>
 <p><img src="../../assets/images/flow.drawio.svg" alt="Corsair flow" class="invert-on-slate"></p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7v2h2v8h2V7zm2-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> TODO</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v2h4v2h-2a2 2 0 0 0-2 2v4h6v-2h-4v-2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> TODO</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 15v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2H9v2h4v2h-2v2h2v2H9v2h4a2 2 0 0 0 2-2M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> TODO</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v6h4v4h2V7h-2v4h-2V7zm3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> TODO</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 7v6h4v2H9v2h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V9h4V7zm3-5a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> TODO</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 7a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V9h4V7zm0 6h2v2h-2zm1-11a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2"/></svg></span> TODO</p>
+<p>The Corsair transforms register descriptions into various output files like RTL code, software headers, and documentation. This process ensures consistency across different project aspects.</p>
+<p>The workflow consists of the following stages:</p>
+<ol>
+<li>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li><code>Register File</code>: Contains the definitions of registers and bitfields (e.g., in YAML or JSON format).</li>
+<li><code>Build File</code>: Recipe that describes how to load the register file and transform it into various outputs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Parsing &amp; Validation:</strong></p>
+<ul>
+<li><code>Loaders</code>: Read and parse the <code>Register File</code> based on its format. Corsair supports multiple formats via different loaders.</li>
+<li><code>Configuration</code>: Processes the <code>Build File</code> to guide the loading and generation steps.</li>
+<li>Input data and build specification are validated during this stage.</li>
+</ul>
+</li>
+<li>
+<p><strong>Internal Representation:</strong></p>
+<ul>
+<li><code>Register Model</code>: A unified, internal data structure representing the parsed and validated register map. This model serves as the single source of truth for the generation stage.</li>
+</ul>
+</li>
+<li>
+<p><strong>Generation:</strong></p>
+<ul>
+<li><code>Generators</code>: Use the <code>Register Model</code> and <code>Configuration</code> data to create the final output files. Different generators produce different types of outputs (e.g., Verilog, VHDL, C headers, Markdown).</li>
+</ul>
+</li>
+<li>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li><code>RTL</code>: Hardware description language files for synthesis or simulation.</li>
+<li><code>SW</code>: Software files, such as headers or drivers, for interacting with the registers.</li>
+<li><code>Docs</code>: Documentation files describing the register map.</li>
+</ul>
+</li>
+</ol>
+<p>This structured flow ensures that all outputs are generated consistently from the same validated source description, guided by the project's configuration.</p>
+<p>For example, if a build file (e.g. <code>csrbuild.yaml</code>) is present in the current directory, running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>corsair<span class="w"> </span>build
+</code></pre></div>
+<p>will generate all output artifacts in the created <code>corsair-build</code> directory. For more details on the <code>build</code> command, see the <a href="../../cli/">CLI documentation</a>.</p>
 
 
 
@@ -2550,7 +2588,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.action.edit", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.action.edit", "content.code.copy", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>

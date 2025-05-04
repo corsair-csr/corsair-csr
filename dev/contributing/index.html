@@ -1185,13 +1185,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/register-model/" class="md-nav__link">
+      <a href="../concepts/loaders/" class="md-nav__link">
         
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 18.54 7.37-5.74L21 14.07l-9 7-9-7 1.62-1.26zM12 16 3 9l9-7 9 7zm0-11.47L6.26 9 12 13.47 17.74 9z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 7v2h5V7zm10 2v2H9v2h3v2l3-3zm5 0v6h5V9zM2 11v2h5v-2zm0 4v2h5v-2z"/></svg>
   
   <span class="md-ellipsis">
-    Register Model
+    Loaders
   </span>
   
 
@@ -1208,13 +1208,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/parsers/" class="md-nav__link">
+      <a href="../concepts/register-model/" class="md-nav__link">
         
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 7v2h5V7zm10 2v2H9v2h3v2l3-3zm5 0v6h5V9zM2 11v2h5v-2zm0 4v2h5v-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 18.54 7.37-5.74L21 14.07l-9 7-9-7 1.62-1.26zM12 16 3 9l9-7 9 7zm0-11.47L6.26 9 12 13.47 17.74 9z"/></svg>
   
   <span class="md-ellipsis">
-    Parsers
+    Register Model
   </span>
   
 
@@ -2580,8 +2580,8 @@
 <li><strong>Reopen in Container</strong>: VS Code should prompt you to "Reopen in Container". Click it. Alternatively, open the Command Palette (<code>Ctrl+Shift+P</code> or <code>Cmd+Shift+P</code>), search for "Dev Containers: Reopen in Container", and run the command.</li>
 <li><strong>Wait</strong>: The first time, it will take a few minutes to build the Docker image and set up the container.</li>
 <li><strong>Verify</strong>: Once the container is ready, open a terminal within VS Code (<code>Terminal &gt; New Terminal</code>). It should open inside the dev container. Verify by running:
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>uv<span class="w"> </span>run<span class="w"> </span>corsair<span class="w"> </span>--help
-</code></pre></div></td></tr></table></div>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>run<span class="w"> </span>corsair<span class="w"> </span>--help
+</code></pre></div>
     You should see the Corsair CLI help message.</li>
 </ol>
 <h3 id="option-2-using-docker-cli">Option 2: Using Docker CLI<a class="headerlink" href="#option-2-using-docker-cli" title="Permanent link">&para;</a></h3>
@@ -2590,25 +2590,18 @@
 <li><strong>Clone the repository</strong>: <code>git clone https://github.com/esynr3z/corsair.git</code></li>
 <li><strong>Navigate</strong>: <code>cd corsair</code></li>
 <li><strong>Build the image</strong>: Build the Docker image using the provided Dockerfile.
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>corsair-dev<span class="w"> </span>.devcontainer/
-</code></pre></div></td></tr></table></div></li>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>corsair-dev<span class="w"> </span>.devcontainer/
+</code></pre></div></li>
 <li><strong>Run the container</strong>: Start an interactive container, mounting the project directory.
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span>
-<span class="normal"><a href="#__codelineno-2-6">6</a></span>
-<span class="normal"><a href="#__codelineno-2-7">7</a></span>
-<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># For Linux/macOS:</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># For Windows (Command Prompt):</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;%cd%:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># For Windows (PowerShell):</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
-</code></pre></div></td></tr></table></div><ul>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># For Linux/macOS:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># For Windows (Command Prompt):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;%cd%:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># For Windows (PowerShell):</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">:/workspaces/corsair&quot;</span><span class="w"> </span>-w<span class="w"> </span>/workspaces/corsair<span class="w"> </span>corsair-dev<span class="w"> </span>bash
+</code></pre></div><ul>
 <li><code>-it</code>: Interactive terminal.</li>
 <li><code>--rm</code>: Remove the container when it exits.</li>
 <li><code>-v "...:/workspaces/corsair"</code>: Mounts your local project directory into the container.</li>
@@ -2618,24 +2611,23 @@
 </ul>
 </li>
 <li><strong>Setup Environment</strong>: Inside the container's bash prompt, install dependencies and pre-commit hooks:
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>uv<span class="w"> </span>sync<span class="w"> </span>--all-extras<span class="w"> </span>--dev
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>uv<span class="w"> </span>run<span class="w"> </span>poe<span class="w"> </span>install-hooks
-</code></pre></div></td></tr></table></div></li>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv<span class="w"> </span>sync<span class="w"> </span>--all-extras<span class="w"> </span>--dev
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>uv<span class="w"> </span>run<span class="w"> </span>poe<span class="w"> </span>install-hooks
+</code></pre></div></li>
 <li><strong>Verify</strong>: Inside the container's bash prompt, run:
-    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>uv<span class="w"> </span>run<span class="w"> </span>corsair<span class="w"> </span>--help
-</code></pre></div></td></tr></table></div>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>run<span class="w"> </span>corsair<span class="w"> </span>--help
+</code></pre></div>
     You should see the Corsair CLI help message.</li>
 </ol>
 <h3 id="running-commands">Running Commands<a class="headerlink" href="#running-commands" title="Permanent link">&para;</a></h3>
 <p>Once inside the development environment (either VS Code terminal or Docker bash), use <code>uv run</code> to execute commands within the project's managed Python environment. This ensures you are using the correct dependencies.</p>
 <p>For example, to run <code>pytest</code>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pytest
-</code></pre></div></td></tr></table></div></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pytest
+</code></pre></div></p>
 <h3 id="available-tasks-poe-the-poet">Available Tasks (Poe the Poet)<a class="headerlink" href="#available-tasks-poe-the-poet" title="Permanent link">&para;</a></h3>
 <p>Common development tasks are defined using <a href="https://github.com/nat-n/poethepoet">poethepoet</a> and can be run via <code>uv run poe &lt;task_name&gt;</code>. You can list all available tasks with:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>uv<span class="w"> </span>run<span class="w"> </span>poe
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv<span class="w"> </span>run<span class="w"> </span>poe
+</code></pre></div>
 <p>Common tasks include:</p>
 <ul>
 <li><code>clean</code>: Clean project directory from temporary files and folders</li>
@@ -2821,7 +2813,7 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.action.edit", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.action.edit", "content.code.copy", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
