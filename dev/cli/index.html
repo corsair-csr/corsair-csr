@@ -16,7 +16,7 @@
         <link rel="prev" href="../register-file/custom/">
       
       
-        <link rel="next" href="commands/">
+        <link rel="next" href="../api/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>CLI Reference - Corsair</title>
+        <title>CLI - Corsair</title>
       
     
     
@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
       <link rel="stylesheet" href="../assets/stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -61,11 +63,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="CLI Reference - Corsair" >
+        <meta  property="og:title"  content="CLI - Corsair" >
       
         <meta  property="og:description"  content="CLI tool and Python library designed to manage CSR maps for HDL projects" >
       
-        <meta  property="og:image"  content="https://corsair-csr.github.io/dev/assets/images/social/cli/index.png" >
+        <meta  property="og:image"  content="https://corsair-csr.github.io/dev/assets/images/social/cli.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -77,11 +79,11 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="CLI Reference - Corsair" >
+        <meta  name="twitter:title"  content="CLI - Corsair" >
       
         <meta  name="twitter:description"  content="CLI tool and Python library designed to manage CSR maps for HDL projects" >
       
-        <meta  name="twitter:image"  content="https://corsair-csr.github.io/dev/assets/images/social/cli/index.png" >
+        <meta  name="twitter:image"  content="https://corsair-csr.github.io/dev/assets/images/social/cli.png" >
       
     
     
@@ -104,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cli-reference" class="md-skip">
+        <a href="#corsair" class="md-skip">
           Skip to content
         </a>
       
@@ -143,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CLI Reference
+              CLI
             
           </span>
         </div>
@@ -362,19 +364,16 @@
     
   
   
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
-          
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
   
     
   
   CLI
 
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -382,19 +381,16 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href="../api/" class="md-tabs__link">
-          
+    <li class="md-tabs__item">
+      <a href="../api/" class="md-tabs__link">
+        
   
     
   
   API
 
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -1999,143 +1995,128 @@
   
   
   
-    
-    
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
         
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
           
-        
-      
-        
-      
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
   
   <span class="md-ellipsis">
     CLI
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            CLI
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
+  
+  <span class="md-ellipsis">
+    CLI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#corsair-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      corsair init
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corsair-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      corsair build
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corsair-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      corsair check
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corsair-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      corsair schema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corsair-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      corsair version
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corsair-test-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      corsair test-logging
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
   
     <li class="md-nav__item">
-      <a href="commands/" class="md-nav__link">
+      <a href="../api/" class="md-nav__link">
         
-  
-  <span class="md-ellipsis">
-    Commands
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../api/" class="md-nav__link ">
-              
   
   <span class="md-ellipsis">
     API
   </span>
   
 
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
-            API
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
+      </a>
     </li>
   
 
@@ -2426,7 +2407,7 @@
                   
 
   
-    <a href="https://github.com/esynr3z/corsair/edit/master/docs/cli/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/esynr3z/corsair/edit/master/docs/cli.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2434,8 +2415,108 @@
   
 
 
-<h1 id="cli-reference">CLI Reference<a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h1>
-<p>Auto-generated reference for the CLI commands.</p>
+<div class="typer-docs">
+<h1 id="corsair"><code>corsair</code><a class="headerlink" href="#corsair" title="Permanent link">&para;</a></h1>
+<p>CorSaiR v2.0.0 -- CSR map generator for HDL projects.</p>
+<p><strong>Usage</strong>:</p>
+<p><code>console
+$ corsair [OPTIONS] COMMAND [ARGS]...</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><code>-v, --verbose</code>: Increase verbosity. Can be applied multiple times to increase even more. Default is WARNING level unless LOG_LEVEL environment variable is set.</li>
+<li><code>-q, --quiet</code>: Decrease verbosity. Can be applied multiple times to decrease even more.Default is WARNING level unless LOG_LEVEL environment variable is set.</li>
+<li><code>--no-color</code>: Disable color output. When not provided, color is enabled unless the NO_COLOR environment variable is set.</li>
+<li><code>--no-rich</code>: Disable rich formatting. When not provided, rich formatting is enabled unless the TERM environment variable is set to 'dumb' or 'unknown'.</li>
+<li><code>-l, --log PATH</code>: Log file to write to.</li>
+<li><code>--help</code>: Show this message and exit.<div class="highlight"><pre><span></span><code>Pass --help or -h after any COMMAND to get additional help.
+
+Set NO_COLOR=1 environment variable to disable any color in output.
+
+Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
+</code></pre></div>
+</li>
+</ul>
+<p><strong>Commands</strong>:</p>
+<ul>
+<li><code>init</code>: Initialize a simple project.</li>
+<li><code>build</code>: Build required targets according to the...</li>
+<li><code>check</code>: Check integrity of Corsair input files...</li>
+<li><code>schema</code>: Dump JSON schema for user input file.</li>
+<li><code>version</code>: Print the application version.</li>
+<li><code>test-logging</code>: Hidden command for testing logging...</li>
+</ul>
+<h2 id="corsair-init"><code>corsair init</code><a class="headerlink" href="#corsair-init" title="Permanent link">&para;</a></h2>
+<p>Initialize a simple project.</p>
+<p><strong>Usage</strong>:</p>
+<p><code>console
+$ corsair init [OPTIONS]</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><code>--help</code>: Show this message and exit.</li>
+</ul>
+<h2 id="corsair-build"><code>corsair build</code><a class="headerlink" href="#corsair-build" title="Permanent link">&para;</a></h2>
+<p>Build required targets according to the provided specification.</p>
+<p><strong>Usage</strong>:</p>
+<p><code>console
+$ corsair build [OPTIONS][TARGETS]...</code></p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>[TARGETS]...</code>: Select targets to build. By default, all targets are built when empty.</li>
+</ul>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><code>-s, --spec PATH</code>: Path to a build specification file  [default: csrbuild.yaml]</li>
+<li><code>-o, --output PATH</code>: Path to an output directory  [default: corsair-build]</li>
+<li><code>--clean</code>: Clean the output directory before building.</li>
+<li><code>--help</code>: Show this message and exit.</li>
+</ul>
+<h2 id="corsair-check"><code>corsair check</code><a class="headerlink" href="#corsair-check" title="Permanent link">&para;</a></h2>
+<p>Check integrity of Corsair input files (build specifications or register maps).</p>
+<p><strong>Usage</strong>:</p>
+<p><code>console
+$ corsair check [OPTIONS][INPUT_PATHS]...</code></p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>[INPUT_PATHS]...</code>: Path(s) to build/map file(s) to check. If omitted, checks all supported files in the current directory.</li>
+</ul>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><code>--help</code>: Show this message and exit.</li>
+</ul>
+<h2 id="corsair-schema"><code>corsair schema</code><a class="headerlink" href="#corsair-schema" title="Permanent link">&para;</a></h2>
+<p>Dump JSON schema for user input file.</p>
+<p><strong>Usage</strong>:</p>
+<p><code>console
+$ corsair schema [OPTIONS] KIND:{build|map}</code></p>
+<p><strong>Arguments</strong>:</p>
+<ul>
+<li><code>KIND:{build|map}</code>: Schema kind.  [required]</li>
+</ul>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><code>--indent N</code>: Indentation level for JSON output. Single line form is used if not provided.</li>
+<li><code>-o, --out PATH</code>: Path for output file. If not provided, then schema is printed to stdout.</li>
+<li><code>--help</code>: Show this message and exit.</li>
+</ul>
+<h2 id="corsair-version"><code>corsair version</code><a class="headerlink" href="#corsair-version" title="Permanent link">&para;</a></h2>
+<p>Print the application version.</p>
+<p><strong>Usage</strong>:</p>
+<p><code>console
+$ corsair version [OPTIONS]</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><code>--help</code>: Show this message and exit.</li>
+</ul>
+<h2 id="corsair-test-logging"><code>corsair test-logging</code><a class="headerlink" href="#corsair-test-logging" title="Permanent link">&para;</a></h2>
+<p>Hidden command for testing logging configuration.</p>
+<p><strong>Usage</strong>:</p>
+<p><code>console
+$ corsair test-logging [OPTIONS]</code></p>
+<p><strong>Options</strong>:</p>
+<ul>
+<li><code>--help</code>: Show this message and exit.</li>
+</ul>
+</div>
 
 
 
@@ -2468,7 +2549,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2025</span>
   </span>
 
     
@@ -2520,13 +2601,13 @@
         
         
           
-          <a href="commands/" class="md-footer__link md-footer__link--next" aria-label="Next: Commands">
+          <a href="../api/" class="md-footer__link md-footer__link--next" aria-label="Next: API">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Commands
+                API
               </div>
             </div>
             <div class="md-footer__button md-icon">
