@@ -37,43 +37,47 @@
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/config/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/asciidoc/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/asciidoc/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/c-header/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/c-header/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/custom/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/custom/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/markdown/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/markdown/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/sv-package/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/sv-package/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/sv/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/sv/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/verilog-header/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/verilog-header/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/verilog/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/verilog/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
-         <loc>https://corsair-csr.github.io/dev/build-file/targets/vhdl/</loc>
+         <loc>https://corsair-csr.github.io/dev/build-file/generators/vhdl/</loc>
+         <lastmod>2025-05-08</lastmod>
+    </url>
+    <url>
+         <loc>https://corsair-csr.github.io/dev/build-file/loaders/</loc>
          <lastmod>2025-05-08</lastmod>
     </url>
     <url>
