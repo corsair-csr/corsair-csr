@@ -2337,8 +2337,13 @@
 
 
 <h1 id="build-specification">Build Specification<a class="headerlink" href="#build-specification" title="Permanent link">&para;</a></h1>
-<p><img src="../../assets/images/flow-build-specification.drawio.svg" alt="Corsair build specification" class="invert-on-slate"></p>
-<p>TODO</p>
+<p><img src="../../assets/images/flow-build-specification.drawio.svg" alt="Corsair build
+specification" class="invert-on-slate"></p>
+<p>Corsair is a configuration-file-oriented tool. This means that all the necessary details for the generation process are conveyed through a dedicated file. This file, often referred to as the build file, build specification, build script, or build recipe, encapsulates all the essential information for a build. It dictates which register map to use, which loader should parse it, the specific settings for that loader, and defines the available generation targets along with their configurations. You can think of it as a Makefile specifically for Corsair.</p>
+<p>The build file and the register map descriptions are intentionally kept separate. This decoupling enhances reusability and simplifies the management of different build configurations.</p>
+<p>The build file uses the YAML format. To aid in editing and ensure correctness, a <a href="https://json-schema.org/">JSON schema</a> is available (you can generate it using the <a href="../../cli/#corsair-schema"><code>corsair schema</code></a>). Additionally, Corsair itself can validate the build file (using the <a href="../../cli/#corsair-check"><code>corsair check</code></a> command).</p>
+<p>The build process is initiated with the <a href="../../cli/#corsair-build"><code>corsair build</code></a> command. During this process, the build file is first validated and parsed into a <a href="../../api/#corsair.BuildSpecification"><code>BuildSpecification</code></a> object. This configuration object is then used to appropriately set up and configure the necessary loader for the register map and the generators for the output targets.</p>
+<p>For a more in-depth understanding of the build file, its structure, and specific features, please refer to the dedicated <a href="../../build-file/">Build File</a> section.</p>
 
 
 
@@ -2361,7 +2366,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 8, 2025</span>
   </span>
 
     

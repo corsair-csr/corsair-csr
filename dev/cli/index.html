@@ -2415,18 +2415,17 @@
   
 
 
-<div class="typer-docs">
 <h1 id="corsair"><code>corsair</code><a class="headerlink" href="#corsair" title="Permanent link">&para;</a></h1>
 <p>CorSaiR v2.0.0 -- CSR map generator for HDL projects.</p>
 <p><strong>Usage</strong>:</p>
-<p><code>console
-$ corsair [OPTIONS] COMMAND [ARGS]...</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>corsair<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</code></pre></div>
 <p><strong>Options</strong>:</p>
 <ul>
 <li><code>-v, --verbose</code>: Increase verbosity. Can be applied multiple times to increase even more. Default is WARNING level unless LOG_LEVEL environment variable is set.</li>
 <li><code>-q, --quiet</code>: Decrease verbosity. Can be applied multiple times to decrease even more.Default is WARNING level unless LOG_LEVEL environment variable is set.</li>
 <li><code>--no-color</code>: Disable color output. When not provided, color is enabled unless the NO_COLOR environment variable is set.</li>
-<li><code>--no-rich</code>: Disable rich formatting. When not provided, rich formatting is enabled unless the TERM environment variable is set to 'dumb' or 'unknown'.</li>
+<li><code>--no-rich</code>: Disable rich formatting. When not provided, rich formatting is enabled unless the TERM environment variable is set to &#x27;dumb&#x27; or &#x27;unknown&#x27;.</li>
 <li><code>-l, --log PATH</code>: Log file to write to.</li>
 <li><code>--help</code>: Show this message and exit.<div class="highlight"><pre><span></span><code>Pass --help or -h after any COMMAND to get additional help.
 
@@ -2448,8 +2447,8 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
 <h2 id="corsair-init"><code>corsair init</code><a class="headerlink" href="#corsair-init" title="Permanent link">&para;</a></h2>
 <p>Initialize a simple project.</p>
 <p><strong>Usage</strong>:</p>
-<p><code>console
-$ corsair init [OPTIONS]</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>init<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</code></pre></div>
 <p><strong>Options</strong>:</p>
 <ul>
 <li><code>--help</code>: Show this message and exit.</li>
@@ -2457,8 +2456,8 @@ $ corsair init [OPTIONS]</code></p>
 <h2 id="corsair-build"><code>corsair build</code><a class="headerlink" href="#corsair-build" title="Permanent link">&para;</a></h2>
 <p>Build required targets according to the provided specification.</p>
 <p><strong>Usage</strong>:</p>
-<p><code>console
-$ corsair build [OPTIONS][TARGETS]...</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>TARGETS<span class="o">]</span>...
+</code></pre></div>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>[TARGETS]...</code>: Select targets to build. By default, all targets are built when empty.</li>
@@ -2473,8 +2472,8 @@ $ corsair build [OPTIONS][TARGETS]...</code></p>
 <h2 id="corsair-check"><code>corsair check</code><a class="headerlink" href="#corsair-check" title="Permanent link">&para;</a></h2>
 <p>Check integrity of Corsair input files (build specifications or register maps).</p>
 <p><strong>Usage</strong>:</p>
-<p><code>console
-$ corsair check [OPTIONS][INPUT_PATHS]...</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>check<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>INPUT_PATHS<span class="o">]</span>...
+</code></pre></div>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>[INPUT_PATHS]...</code>: Path(s) to build/map file(s) to check. If omitted, checks all supported files in the current directory.</li>
@@ -2486,8 +2485,8 @@ $ corsair check [OPTIONS][INPUT_PATHS]...</code></p>
 <h2 id="corsair-schema"><code>corsair schema</code><a class="headerlink" href="#corsair-schema" title="Permanent link">&para;</a></h2>
 <p>Dump JSON schema for user input file.</p>
 <p><strong>Usage</strong>:</p>
-<p><code>console
-$ corsair schema [OPTIONS] KIND:{build|map}</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>schema<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>KIND:<span class="o">{</span>build<span class="p">|</span>map<span class="o">}</span>
+</code></pre></div>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>KIND:{build|map}</code>: Schema kind.  [required]</li>
@@ -2501,8 +2500,8 @@ $ corsair schema [OPTIONS] KIND:{build|map}</code></p>
 <h2 id="corsair-version"><code>corsair version</code><a class="headerlink" href="#corsair-version" title="Permanent link">&para;</a></h2>
 <p>Print the application version.</p>
 <p><strong>Usage</strong>:</p>
-<p><code>console
-$ corsair version [OPTIONS]</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>version<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</code></pre></div>
 <p><strong>Options</strong>:</p>
 <ul>
 <li><code>--help</code>: Show this message and exit.</li>
@@ -2510,13 +2509,12 @@ $ corsair version [OPTIONS]</code></p>
 <h2 id="corsair-test-logging"><code>corsair test-logging</code><a class="headerlink" href="#corsair-test-logging" title="Permanent link">&para;</a></h2>
 <p>Hidden command for testing logging configuration.</p>
 <p><strong>Usage</strong>:</p>
-<p><code>console
-$ corsair test-logging [OPTIONS]</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>test-logging<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</code></pre></div>
 <p><strong>Options</strong>:</p>
 <ul>
 <li><code>--help</code>: Show this message and exit.</li>
 </ul>
-</div>
 
 
 
@@ -2539,7 +2537,7 @@ $ corsair test-logging [OPTIONS]</code></p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 8, 2025</span>
   </span>
 
     
