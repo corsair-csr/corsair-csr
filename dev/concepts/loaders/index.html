@@ -2338,7 +2338,18 @@
 
 <h1 id="loaders">Loaders<a class="headerlink" href="#loaders" title="Permanent link">&para;</a></h1>
 <p><img src="../../assets/images/flow-loaders.drawio.svg" alt="Corsair loaders" class="invert-on-slate"></p>
-<p>TODO</p>
+<p>Register maps, often referred to as Control and Status Registers (CSRs), are fundamental in hardware design. They represent named memory regions where specific addresses correspond to individual registers. Each register, in turn, is composed of a collection of named bitfields. These bitfields can further define enumerated values, associating specific names with particular states or meanings. The <code>Register File</code> is a crucial input for Corsair, providing a comprehensive description of this entire hierarchy in a single, consistent format.</p>
+<p>Corsair utilizes a system of <code>Loaders</code> to read and parse these <code>Register File</code>s. The primary role of a loader is to transform the input description, regardless of its original format, into an internal data structure known as the <a href="../../api/#corsair.Map"><code>Map</code></a> object. This <a href="../../api/#corsair.Map"><code>Map</code></a> object serves as Corsair's unified internal representation of the register map and is subsequently used by various generators to produce different outputs (like RTL code, software headers, or documentation).</p>
+<p>Corsair aims to support a variety of input formats for register descriptions through different loaders:</p>
+<ul>
+<li><strong>Serialized Data Formats:</strong> This loader can read register descriptions from common data serialization formats such as JSON, YAML, and HJSON.</li>
+<li><strong>Python File Loader (Coming Soon):</strong> This will allow defining the register map directly as a Python object within a <code>.py</code> file, offering flexibility for programmatic descriptions.</li>
+<li><strong>Text Table Loader (Coming Soon):</strong> For those who prefer a simple, human-readable format, this loader will parse register maps from plain text tables, similar to Markdown tables.</li>
+<li><strong>XLSX Loader (Coming Soon):</strong> This loader will enable reading register descriptions directly from Microsoft Excel spreadsheets (<code>.xlsx</code> files).</li>
+<li><strong>Custom User-Defined Loaders (Coming Soon):</strong> Corsair will also provide a mechanism for users to develop and integrate their own custom loaders, allowing for support of proprietary or specialized register description formats.</li>
+</ul>
+<p>The goal of each loader is consistent: to accurately interpret the source <code>Register File</code> and construct the internal <a href="../../api/#corsair.Map"><code>Map</code></a> object. This <a href="../../api/#corsair.Map"><code>Map</code></a> then acts as the single source of truth for all subsequent generation tasks.</p>
+<p>For more detailed information on the specific syntax and structure of <code>Register File</code>s in various supported formats, please refer to the <a href="../../register-file/">Register File</a> formats documentation.</p>
 
 
 
@@ -2361,7 +2372,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 4, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 8, 2025</span>
   </span>
 
     
