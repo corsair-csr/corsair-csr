@@ -2,162 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://corsair-csr.github.io/dev/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/api/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/changelog/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/cli/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/contributing/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/first-steps/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/installation/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/blog/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/asciidoc/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/c-header/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/custom/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/markdown/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/sv-package/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/sv/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/verilog-header/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/verilog/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/generators/vhdl/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/build-file/loaders/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/build-specification/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/customization/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/file-confidence/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/generators/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/loaders/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/philosophy/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/register-model/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/concepts/workflow/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/cookbook/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/cookbook/api/custom-flow/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/cookbook/cli/create-project/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/hardware/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/hardware/fields/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/hardware/protocols/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/register-file/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/register-file/custom/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/register-file/json/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/register-file/toml/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
     <url>
          <loc>https://corsair-csr.github.io/dev/register-file/yaml/</loc>
-         <lastmod>2025-05-09</lastmod>
+         <lastmod>2025-05-10</lastmod>
     </url>
 </urlset>
