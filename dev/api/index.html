@@ -3429,6 +3429,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#corsair.MarkdownGenerator.Config.print_disclaimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      print_disclaimer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#corsair.MarkdownGenerator.Config.print_images" class="md-nav__link">
     <span class="md-ellipsis">
       print_images
@@ -6582,6 +6591,15 @@
   <a href="#corsair.MarkdownGenerator.Config.print_conventions" class="md-nav__link">
     <span class="md-ellipsis">
       print_conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corsair.MarkdownGenerator.Config.print_disclaimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      print_disclaimer
     </span>
   </a>
   
@@ -14690,7 +14708,10 @@ that current method returns non-offsetted bit slice to represent positions withi
 <span class="normal"><a href="#__codelineno-0-78">78</a></span>
 <span class="normal"><a href="#__codelineno-0-79">79</a></span>
 <span class="normal"><a href="#__codelineno-0-80">80</a></span>
-<span class="normal"><a href="#__codelineno-0-81">81</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">class</span> <span class="nc">MarkdownGenerator</span><span class="p">(</span><span class="n">Generator</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-81">81</a></span>
+<span class="normal"><a href="#__codelineno-0-82">82</a></span>
+<span class="normal"><a href="#__codelineno-0-83">83</a></span>
+<span class="normal"><a href="#__codelineno-0-84">84</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">class</span> <span class="nc">MarkdownGenerator</span><span class="p">(</span><span class="n">Generator</span><span class="p">):</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Markdown file generator for a register map.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="k">class</span> <span class="nc">Config</span><span class="p">(</span><span class="n">GeneratorConfig</span><span class="p">):</span>
@@ -14717,46 +14738,49 @@ that current method returns non-offsetted bit slice to represent positions withi
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="n">print_conventions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Enable generating table with register access modes explained.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="n">wavedrom</span><span class="p">:</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span> <span class="o">=</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Configuration for the WaveDrom generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="n">print_disclaimer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Enable generating disclaimer with version at the beginning of the file.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="nd">@property</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="k">def</span> <span class="nf">generator_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Generator</span><span class="p">]:</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">            </span><span class="sd">&quot;&quot;&quot;Related generator class.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>            <span class="k">return</span> <span class="n">MarkdownGenerator</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="k">def</span> <span class="nf">get_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">            </span><span class="sd">&quot;&quot;&quot;Get the kind of the generator.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="nd">@classmethod</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="k">def</span> <span class="nf">get_config_cls</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">GeneratorConfig</span><span class="p">]:</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the configuration class for the generator.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">Config</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="k">def</span> <span class="nf">_generate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TypeGenerator</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate all the outputs.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Config</span><span class="p">)</span>  <span class="c1"># noqa: S101, to help type checker</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>            <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>            <span class="s2">&quot;regmap&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">register_map</span><span class="p">,</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="p">}</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render_to_file</span><span class="p">(</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>            <span class="n">template_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">template_name</span><span class="p">,</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>            <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>            <span class="n">file_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="p">)</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">print_images</span><span class="p">:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>            <span class="n">wd_gen</span> <span class="o">=</span> <span class="n">WaveDromGenerator</span><span class="p">(</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="si">}</span><span class="s2">.wavedrom&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>                <span class="n">register_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">register_map</span><span class="p">,</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">wavedrom</span><span class="p">,</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>                <span class="n">output_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">image_dir</span><span class="p">,</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>            <span class="p">)</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>            <span class="k">yield from</span> <span class="n">wd_gen</span><span class="p">()</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="n">wavedrom</span><span class="p">:</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span> <span class="o">=</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Configuration for the WaveDrom generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="nd">@property</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="k">def</span> <span class="nf">generator_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Generator</span><span class="p">]:</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">            </span><span class="sd">&quot;&quot;&quot;Related generator class.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>            <span class="k">return</span> <span class="n">MarkdownGenerator</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="k">def</span> <span class="nf">get_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">            </span><span class="sd">&quot;&quot;&quot;Get the kind of the generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="nd">@classmethod</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">def</span> <span class="nf">get_config_cls</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">GeneratorConfig</span><span class="p">]:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the configuration class for the generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">Config</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">def</span> <span class="nf">_generate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TypeGenerator</span><span class="p">[</span><span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate all the outputs.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Config</span><span class="p">)</span>  <span class="c1"># noqa: S101, to help type checker</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>            <span class="s2">&quot;cfg&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>            <span class="s2">&quot;regmap&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">register_map</span><span class="p">,</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="p">}</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_render_to_file</span><span class="p">(</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>            <span class="n">template_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">template_name</span><span class="p">,</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>            <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>            <span class="n">file_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="p">)</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">print_images</span><span class="p">:</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>            <span class="n">wd_gen</span> <span class="o">=</span> <span class="n">WaveDromGenerator</span><span class="p">(</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>                <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="si">}</span><span class="s2">.wavedrom&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>                <span class="n">register_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">register_map</span><span class="p">,</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">wavedrom</span><span class="p">,</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>                <span class="n">output_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">image_dir</span><span class="p">,</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>            <span class="p">)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>            <span class="k">yield from</span> <span class="n">wd_gen</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -14831,7 +14855,10 @@ that current method returns non-offsetted bit slice to represent positions withi
 <span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">class</span> <span class="nc">Config</span><span class="p">(</span><span class="n">GeneratorConfig</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">class</span> <span class="nc">Config</span><span class="p">(</span><span class="n">GeneratorConfig</span><span class="p">):</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for the Markdown generator.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">kind</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;markdown&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;markdown&quot;</span>
@@ -14855,17 +14882,20 @@ that current method returns non-offsetted bit slice to represent positions withi
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="n">print_conventions</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Enable generating table with register access modes explained.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">wavedrom</span><span class="p">:</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span> <span class="o">=</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for the WaveDrom generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">print_disclaimer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Enable generating disclaimer with version at the beginning of the file.&quot;&quot;&quot;</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="k">def</span> <span class="nf">generator_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Generator</span><span class="p">]:</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Related generator class.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="k">return</span> <span class="n">MarkdownGenerator</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">def</span> <span class="nf">get_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the kind of the generator.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">wavedrom</span><span class="p">:</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span> <span class="o">=</span> <span class="n">WaveDromGenerator</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuration for the WaveDrom generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="k">def</span> <span class="nf">generator_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">Generator</span><span class="p">]:</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Related generator class.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="k">return</span> <span class="n">MarkdownGenerator</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">def</span> <span class="nf">get_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the kind of the generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
 </code></pre></div></td></tr></table></div>
               </details>
 
@@ -14997,6 +15027,29 @@ that current method returns non-offsetted bit slice to represent positions withi
 
 
 
+<h4 id="corsair.MarkdownGenerator.Config.print_disclaimer" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">print_disclaimer</span> <span class="o">=</span> <span class="kc">True</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#corsair.MarkdownGenerator.Config.print_disclaimer" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Enable generating disclaimer with version at the beginning of the file.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h4 id="corsair.MarkdownGenerator.Config.print_images" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">print_images</span> <span class="o">=</span> <span class="kc">False</span></code>
 
@@ -15103,11 +15156,11 @@ that current method returns non-offsetted bit slice to represent positions withi
 
             <details class="quote">
               <summary>Source code in <code>src/corsair/_generators/markdown.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="k">def</span> <span class="nf">get_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the kind of the generator.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="k">def</span> <span class="nf">get_kind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the kind of the generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kind</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -15143,13 +15196,13 @@ that current method returns non-offsetted bit slice to represent positions withi
 
             <details class="quote">
               <summary>Source code in <code>src/corsair/_generators/markdown.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="nd">@classmethod</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">def</span> <span class="nf">get_config_cls</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">GeneratorConfig</span><span class="p">]:</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the configuration class for the generator.&quot;&quot;&quot;</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">Config</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="nd">@classmethod</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span> <span class="nf">get_config_cls</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">[</span><span class="n">GeneratorConfig</span><span class="p">]:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the configuration class for the generator.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">Config</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
