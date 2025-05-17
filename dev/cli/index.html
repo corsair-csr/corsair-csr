@@ -2546,8 +2546,8 @@
 <h1 id="corsair"><code>corsair</code><a class="headerlink" href="#corsair" title="Permanent link">&para;</a></h1>
 <p>CorSaiR v2.0.0 -- CSR map generator for HDL projects.</p>
 <p><strong>Usage</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>corsair<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>corsair<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</span></code></pre></div>
 <p><strong>Options</strong>:</p>
 <ul>
 <li><code>-v, --verbose</code>: Increase verbosity. Can be applied multiple times to increase even more. Default is WARNING level unless LOG_LEVEL environment variable is set.</li>
@@ -2555,7 +2555,7 @@
 <li><code>--no-color</code>: Disable color output. When not provided, color is enabled unless the NO_COLOR environment variable is set.</li>
 <li><code>--no-rich</code>: Disable rich formatting. When not provided, rich formatting is enabled unless the TERM environment variable is set to &#x27;dumb&#x27; or &#x27;unknown&#x27;.</li>
 <li><code>-l, --log PATH</code>: Log file to write to.</li>
-<li><code>--help</code>: Show this message and exit.<div class="highlight"><pre><span></span><code>Pass --help or -h after any COMMAND to get additional help.
+<li><code>--help</code>: Show this message and exit.<div class="language-text highlight"><pre><span></span><code>Pass --help or -h after any COMMAND to get additional help.
 
 Set NO_COLOR=1 environment variable to disable any color in output.
 
@@ -2575,8 +2575,8 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
 <h2 id="corsair-init"><code>corsair init</code><a class="headerlink" href="#corsair-init" title="Permanent link">&para;</a></h2>
 <p>Initialize a simple project.</p>
 <p><strong>Usage</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>init<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>KIND<span class="o">]</span>:<span class="o">[</span>json<span class="p">|</span>hjson<span class="p">|</span>yaml<span class="o">]</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>init<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>KIND<span class="o">]</span>:<span class="o">[</span>json<span class="p">|</span>hjson<span class="p">|</span>yaml<span class="o">]</span>
+</span></code></pre></div>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>[KIND]:[json|hjson|yaml]</code>: Template kind. Defines the format of the generated register map file.  [default: yaml]</li>
@@ -2589,8 +2589,8 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
 <h2 id="corsair-build"><code>corsair build</code><a class="headerlink" href="#corsair-build" title="Permanent link">&para;</a></h2>
 <p>Build required targets according to the provided specification.</p>
 <p><strong>Usage</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>TARGETS<span class="o">]</span>...
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>TARGETS<span class="o">]</span>...
+</span></code></pre></div>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>[TARGETS]...</code>: Select targets to build. By default, all targets are built when empty.</li>
@@ -2605,8 +2605,8 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
 <h2 id="corsair-check"><code>corsair check</code><a class="headerlink" href="#corsair-check" title="Permanent link">&para;</a></h2>
 <p>Check integrity of Corsair input files (build specifications or register maps).</p>
 <p><strong>Usage</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>check<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>INPUT_PATHS<span class="o">]</span>...
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>check<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>INPUT_PATHS<span class="o">]</span>...
+</span></code></pre></div>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>[INPUT_PATHS]...</code>: Path(s) to build/map file(s) to check. If omitted, checks all supported files in the current directory.</li>
@@ -2618,8 +2618,8 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
 <h2 id="corsair-schema"><code>corsair schema</code><a class="headerlink" href="#corsair-schema" title="Permanent link">&para;</a></h2>
 <p>Dump JSON schema for user input file.</p>
 <p><strong>Usage</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>schema<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>KIND:<span class="o">{</span>build<span class="p">|</span>map<span class="o">}</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>schema<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>KIND:<span class="o">{</span>build<span class="p">|</span>map<span class="o">}</span>
+</span></code></pre></div>
 <p><strong>Arguments</strong>:</p>
 <ul>
 <li><code>KIND:{build|map}</code>: Schema kind.  [required]</li>
@@ -2633,8 +2633,8 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
 <h2 id="corsair-version"><code>corsair version</code><a class="headerlink" href="#corsair-version" title="Permanent link">&para;</a></h2>
 <p>Print the application version.</p>
 <p><strong>Usage</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>version<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>version<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
 <p><strong>Options</strong>:</p>
 <ul>
 <li><code>--help</code>: Show this message and exit.</li>
@@ -2642,8 +2642,8 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
 <h2 id="corsair-test-logging"><code>corsair test-logging</code><a class="headerlink" href="#corsair-test-logging" title="Permanent link">&para;</a></h2>
 <p>Hidden command for testing logging configuration.</p>
 <p><strong>Usage</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>test-logging<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>corsair<span class="w"> </span>test-logging<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
+</span></code></pre></div>
 <p><strong>Options</strong>:</p>
 <ul>
 <li><code>--help</code>: Show this message and exit.</li>
@@ -2774,7 +2774,7 @@ Set TERM=dumb or TERM=unknown environment variable to enable plain text output.
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "content.action.edit", "content.code.copy", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "content.action.edit", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
